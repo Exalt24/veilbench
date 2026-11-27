@@ -39,7 +39,7 @@
   "python": "3.13.14",
   "platform": "Windows-11-10.0.26300-SP0",
   "cpu_count": 16,
-  "llm_model": null,
+  "llm_model": "openai/gpt-oss-120b",
   "llm_price_usd_per_million": {
    "input": 0.15,
    "output": 0.6
@@ -47,9 +47,7 @@
   "model_load_seconds": {},
   "stat_training": "1500 records, seed 1, split train"
  },
- "skipped": {
-  "llm": "no GROQ_API_KEY and no cached responses"
- },
+ "skipped": {},
  "configs": [
   {
    "records": 800,
@@ -364,7 +362,7 @@
    "records_scored": 800,
    "latency_ms": {
     "p50": 0.29,
-    "p95": 0.73,
+    "p95": 0.74,
     "mean": 0.35
    },
    "cost_per_1000_records": {
@@ -1927,10 +1925,10 @@
    "latency_ms": {
     "p50": 11.66,
     "p95": 23.56,
-    "mean": 12.84
+    "mean": 12.85
    },
    "cost_per_1000_records": {
-    "compute_seconds_wall": 12.84,
+    "compute_seconds_wall": 12.85,
     "llm_usd": 0.0,
     "llm_tokens_in": 0,
     "llm_tokens_out": 0
@@ -2398,7 +2396,2738 @@
   }
  ],
  "llm_subset": {
-  "records": 0,
-  "configs": []
+  "records": 27,
+  "configs": [
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 120,
+     "fp": 0,
+     "fn": 25,
+     "precision": 1.0,
+     "recall": 0.8276,
+     "f1": 0.9057,
+     "f2": 0.8571
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 28,
+      "fp": 0,
+      "fn": 20,
+      "precision": 1.0,
+      "recall": 0.5833,
+      "f1": 0.7368,
+      "f2": 0.6364
+     },
+     "EMAIL": {
+      "tp": 24,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ADDRESS": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.7368,
+      "f1": 0.8485,
+      "f2": 0.7778
+     },
+     "NATIONAL_ID": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IBAN": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "API_KEY": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "JWT": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IP_ADDRESS": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 23,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.92,
+      "f1": 0.9583,
+      "f2": 0.935
+     },
+     "csv": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 6,
+      "precision": 1.0,
+      "recall": 0.7692,
+      "f1": 0.8696,
+      "f2": 0.8065
+     },
+     "drift": {
+      "tp": 31,
+      "fp": 0,
+      "fn": 7,
+      "precision": 1.0,
+      "recall": 0.8158,
+      "f1": 0.8986,
+      "f2": 0.847
+     },
+     "filename": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 11,
+      "precision": 1.0,
+      "recall": 0.3889,
+      "f1": 0.56,
+      "f2": 0.443
+     },
+     "hard_negative": {
+      "tp": 96,
+      "fp": 0,
+      "fn": 21,
+      "precision": 1.0,
+      "recall": 0.8205,
+      "f1": 0.9014,
+      "f2": 0.8511
+     },
+     "json": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333,
+      "f2": 0.8974
+     },
+     "log": {
+      "tp": 21,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333,
+      "f2": 0.8974
+     },
+     "non_english": {
+      "tp": 90,
+      "fp": 0,
+      "fn": 11,
+      "precision": 1.0,
+      "recall": 0.8911,
+      "f1": 0.9424,
+      "f2": 0.9109
+     },
+     "obfuscated": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9333,
+      "f1": 0.9655,
+      "f2": 0.9459
+     },
+     "ticket": {
+      "tp": 48,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1.0,
+      "recall": 0.9412,
+      "f1": 0.9697,
+      "f2": 0.9524
+     },
+     "transcript": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "unexpected_field": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "caught_rate": 0.8276,
+    "leakage_rate": 0.5556,
+    "leaking_records": 15,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 2,
+      "records": 5,
+      "rate": 0.4
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 4,
+      "records": 6,
+      "rate": 0.6667
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 12,
+      "records": 21,
+      "rate": 0.5714
+     },
+     "json": {
+      "leaking": 2,
+      "records": 4,
+      "rate": 0.5
+     },
+     "log": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "non_english": {
+      "leaking": 8,
+      "records": 20,
+      "rate": 0.4
+     },
+     "obfuscated": {
+      "leaking": 1,
+      "records": 3,
+      "rate": 0.3333
+     },
+     "ticket": {
+      "leaking": 3,
+      "records": 10,
+      "rate": 0.3
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 5,
+     "PERSON": 20
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 0,
+     "rate": 0.0
+    },
+    "config": "rules",
+    "components": [
+     "rules"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 0.24,
+     "p95": 0.58,
+     "mean": 0.3
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 0.3,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 0.5556,
+    "verbatim_leaking_records": 15,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 2,
+      "records": 5,
+      "rate": 0.4
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 4,
+      "records": 6,
+      "rate": 0.6667
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 12,
+      "records": 21,
+      "rate": 0.5714
+     },
+     "json": {
+      "leaking": 2,
+      "records": 4,
+      "rate": 0.5
+     },
+     "log": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "non_english": {
+      "leaking": 8,
+      "records": 20,
+      "rate": 0.4
+     },
+     "obfuscated": {
+      "leaking": 1,
+      "records": 3,
+      "rate": 0.3333
+     },
+     "ticket": {
+      "leaking": 3,
+      "records": 10,
+      "rate": 0.3
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 136,
+     "fp": 17,
+     "fn": 9,
+     "precision": 0.8889,
+     "recall": 0.9379,
+     "f1": 0.9128,
+     "f2": 0.9277
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 44,
+      "fp": 7,
+      "fn": 4,
+      "precision": 0.8627,
+      "recall": 0.9167,
+      "f1": 0.8889,
+      "f2": 0.9053
+     },
+     "EMAIL": {
+      "tp": 24,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1": 0.9231,
+      "f2": 0.9677
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ADDRESS": {
+      "tp": 14,
+      "fp": 3,
+      "fn": 5,
+      "precision": 0.8235,
+      "recall": 0.7368,
+      "f1": 0.7778,
+      "f2": 0.7527
+     },
+     "NATIONAL_ID": {
+      "tp": 11,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.8462,
+      "recall": 1.0,
+      "f1": 0.9167,
+      "f2": 0.9649
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IBAN": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "API_KEY": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "JWT": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IP_ADDRESS": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 25,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.8621,
+      "recall": 1.0,
+      "f1": 0.9259,
+      "f2": 0.969
+     },
+     "csv": {
+      "tp": 26,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "drift": {
+      "tp": 38,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "filename": {
+      "tp": 12,
+      "fp": 6,
+      "fn": 6,
+      "precision": 0.6667,
+      "recall": 0.6667,
+      "f1": 0.6667,
+      "f2": 0.6667
+     },
+     "hard_negative": {
+      "tp": 110,
+      "fp": 15,
+      "fn": 7,
+      "precision": 0.88,
+      "recall": 0.9402,
+      "f1": 0.9091,
+      "f2": 0.9275
+     },
+     "json": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "log": {
+      "tp": 21,
+      "fp": 7,
+      "fn": 3,
+      "precision": 0.75,
+      "recall": 0.875,
+      "f1": 0.8077,
+      "f2": 0.8468
+     },
+     "non_english": {
+      "tp": 98,
+      "fp": 7,
+      "fn": 3,
+      "precision": 0.9333,
+      "recall": 0.9703,
+      "f1": 0.9515,
+      "f2": 0.9627
+     },
+     "obfuscated": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ticket": {
+      "tp": 51,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.9273,
+      "recall": 1.0,
+      "f1": 0.9623,
+      "f2": 0.9846
+     },
+     "transcript": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "unexpected_field": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "caught_rate": 0.9586,
+    "leakage_rate": 0.1852,
+    "leaking_records": 5,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 5,
+      "records": 21,
+      "rate": 0.2381
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 4,
+     "PERSON": 1
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 3,
+     "rate": 0.0492
+    },
+    "config": "rules+stat",
+    "components": [
+     "rules",
+     "stat"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 10.95,
+     "p95": 13.2,
+     "mean": 11.34
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 11.34,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 0.1111,
+    "verbatim_leaking_records": 3,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 3,
+      "records": 21,
+      "rate": 0.1429
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 136,
+     "fp": 46,
+     "fn": 9,
+     "precision": 0.7473,
+     "recall": 0.9379,
+     "f1": 0.8318,
+     "f2": 0.8924
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 44,
+      "fp": 28,
+      "fn": 4,
+      "precision": 0.6111,
+      "recall": 0.9167,
+      "f1": 0.7333,
+      "f2": 0.8333
+     },
+     "EMAIL": {
+      "tp": 24,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1": 0.9231,
+      "f2": 0.9677
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ADDRESS": {
+      "tp": 14,
+      "fp": 11,
+      "fn": 5,
+      "precision": 0.56,
+      "recall": 0.7368,
+      "f1": 0.6364,
+      "f2": 0.6931
+     },
+     "NATIONAL_ID": {
+      "tp": 11,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.8462,
+      "recall": 1.0,
+      "f1": 0.9167,
+      "f2": 0.9649
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IBAN": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "API_KEY": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "JWT": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IP_ADDRESS": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 25,
+      "fp": 9,
+      "fn": 0,
+      "precision": 0.7353,
+      "recall": 1.0,
+      "f1": 0.8475,
+      "f2": 0.9328
+     },
+     "csv": {
+      "tp": 26,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.8966,
+      "recall": 1.0,
+      "f1": 0.9455,
+      "f2": 0.9774
+     },
+     "drift": {
+      "tp": 38,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.9268,
+      "recall": 1.0,
+      "f1": 0.962,
+      "f2": 0.9845
+     },
+     "filename": {
+      "tp": 12,
+      "fp": 6,
+      "fn": 6,
+      "precision": 0.6667,
+      "recall": 0.6667,
+      "f1": 0.6667,
+      "f2": 0.6667
+     },
+     "hard_negative": {
+      "tp": 110,
+      "fp": 39,
+      "fn": 7,
+      "precision": 0.7383,
+      "recall": 0.9402,
+      "f1": 0.8271,
+      "f2": 0.8914
+     },
+     "json": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "log": {
+      "tp": 21,
+      "fp": 10,
+      "fn": 3,
+      "precision": 0.6774,
+      "recall": 0.875,
+      "f1": 0.7636,
+      "f2": 0.8268
+     },
+     "non_english": {
+      "tp": 98,
+      "fp": 32,
+      "fn": 3,
+      "precision": 0.7538,
+      "recall": 0.9703,
+      "f1": 0.8485,
+      "f2": 0.9176
+     },
+     "obfuscated": {
+      "tp": 15,
+      "fp": 5,
+      "fn": 0,
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571,
+      "f2": 0.9375
+     },
+     "ticket": {
+      "tp": 51,
+      "fp": 22,
+      "fn": 0,
+      "precision": 0.6986,
+      "recall": 1.0,
+      "f1": 0.8226,
+      "f2": 0.9206
+     },
+     "transcript": {
+      "tp": 10,
+      "fp": 5,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     },
+     "unexpected_field": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "caught_rate": 0.9586,
+    "leakage_rate": 0.1852,
+    "leaking_records": 5,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 5,
+      "records": 21,
+      "rate": 0.2381
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 4,
+     "PERSON": 1
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 15,
+     "rate": 0.2459
+    },
+    "config": "rules+stat+spacy",
+    "components": [
+     "rules",
+     "stat",
+     "spacy"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 21.75,
+     "p95": 33.9,
+     "mean": 22.63
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 22.63,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 0.1111,
+    "verbatim_leaking_records": 3,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 3,
+      "records": 21,
+      "rate": 0.1429
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 136,
+     "fp": 52,
+     "fn": 9,
+     "precision": 0.7234,
+     "recall": 0.9379,
+     "f1": 0.8168,
+     "f2": 0.8854
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 44,
+      "fp": 9,
+      "fn": 4,
+      "precision": 0.8302,
+      "recall": 0.9167,
+      "f1": 0.8713,
+      "f2": 0.898
+     },
+     "EMAIL": {
+      "tp": 24,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.8889,
+      "recall": 1.0,
+      "f1": 0.9412,
+      "f2": 0.9756
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ADDRESS": {
+      "tp": 14,
+      "fp": 3,
+      "fn": 5,
+      "precision": 0.8235,
+      "recall": 0.7368,
+      "f1": 0.7778,
+      "f2": 0.7527
+     },
+     "NATIONAL_ID": {
+      "tp": 11,
+      "fp": 8,
+      "fn": 0,
+      "precision": 0.5789,
+      "recall": 1.0,
+      "f1": 0.7333,
+      "f2": 0.873
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IBAN": {
+      "tp": 3,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.3333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "f2": 0.7143
+     },
+     "API_KEY": {
+      "tp": 6,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "JWT": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 13,
+      "fn": 0,
+      "precision": 0.1333,
+      "recall": 1.0,
+      "f1": 0.2353,
+      "f2": 0.4348
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     },
+     "IP_ADDRESS": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 25,
+      "fp": 9,
+      "fn": 0,
+      "precision": 0.7353,
+      "recall": 1.0,
+      "f1": 0.8475,
+      "f2": 0.9328
+     },
+     "csv": {
+      "tp": 26,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.8667,
+      "recall": 1.0,
+      "f1": 0.9286,
+      "f2": 0.9701
+     },
+     "drift": {
+      "tp": 38,
+      "fp": 10,
+      "fn": 0,
+      "precision": 0.7917,
+      "recall": 1.0,
+      "f1": 0.8837,
+      "f2": 0.95
+     },
+     "filename": {
+      "tp": 11,
+      "fp": 8,
+      "fn": 7,
+      "precision": 0.5789,
+      "recall": 0.6111,
+      "f1": 0.5946,
+      "f2": 0.6044
+     },
+     "hard_negative": {
+      "tp": 110,
+      "fp": 48,
+      "fn": 7,
+      "precision": 0.6962,
+      "recall": 0.9402,
+      "f1": 0.8,
+      "f2": 0.8786
+     },
+     "json": {
+      "tp": 16,
+      "fp": 8,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     },
+     "log": {
+      "tp": 22,
+      "fp": 9,
+      "fn": 2,
+      "precision": 0.7097,
+      "recall": 0.9167,
+      "f1": 0.8,
+      "f2": 0.8661
+     },
+     "non_english": {
+      "tp": 97,
+      "fp": 35,
+      "fn": 4,
+      "precision": 0.7348,
+      "recall": 0.9604,
+      "f1": 0.8326,
+      "f2": 0.9049
+     },
+     "obfuscated": {
+      "tp": 15,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1": 0.9677,
+      "f2": 0.9868
+     },
+     "ticket": {
+      "tp": 51,
+      "fp": 23,
+      "fn": 0,
+      "precision": 0.6892,
+      "recall": 1.0,
+      "f1": 0.816,
+      "f2": 0.9173
+     },
+     "transcript": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "unexpected_field": {
+      "tp": 8,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     }
+    },
+    "caught_rate": 0.9655,
+    "leakage_rate": 0.1481,
+    "leaking_records": 4,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 4,
+      "records": 21,
+      "rate": 0.1905
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 1,
+      "records": 3,
+      "rate": 0.3333
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 4
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 35,
+     "rate": 0.5738
+    },
+    "config": "rules+stat+gliner",
+    "components": [
+     "rules",
+     "stat",
+     "gliner"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 70.4,
+     "p95": 142.06,
+     "mean": 80.73
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 80.73,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 0.1111,
+    "verbatim_leaking_records": 3,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 3,
+      "records": 5,
+      "rate": 0.6
+     },
+     "hard_negative": {
+      "leaking": 3,
+      "records": 21,
+      "rate": 0.1429
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "non_english": {
+      "leaking": 2,
+      "records": 20,
+      "rate": 0.1
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 33,
+     "fp": 66,
+     "fn": 112,
+     "precision": 0.3333,
+     "recall": 0.2276,
+     "f1": 0.2705,
+     "f2": 0.243
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 33,
+      "fp": 35,
+      "fn": 15,
+      "precision": 0.4853,
+      "recall": 0.6875,
+      "f1": 0.569,
+      "f2": 0.6346
+     },
+     "EMAIL": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 24,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "PHONE": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 11,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "ADDRESS": {
+      "tp": 0,
+      "fp": 31,
+      "fn": 19,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "NATIONAL_ID": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 11,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "CREDIT_CARD": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "IBAN": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "API_KEY": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "JWT": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "PASSWORD": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "IP_ADDRESS": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 13,
+      "fp": 13,
+      "fn": 12,
+      "precision": 0.5,
+      "recall": 0.52,
+      "f1": 0.5098,
+      "f2": 0.5159
+     },
+     "csv": {
+      "tp": 6,
+      "fp": 11,
+      "fn": 20,
+      "precision": 0.3529,
+      "recall": 0.2308,
+      "f1": 0.2791,
+      "f2": 0.2479
+     },
+     "drift": {
+      "tp": 6,
+      "fp": 15,
+      "fn": 32,
+      "precision": 0.2857,
+      "recall": 0.1579,
+      "f1": 0.2034,
+      "f2": 0.1734
+     },
+     "filename": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 18,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "hard_negative": {
+      "tp": 24,
+      "fp": 59,
+      "fn": 93,
+      "precision": 0.2892,
+      "recall": 0.2051,
+      "f1": 0.24,
+      "f2": 0.2178
+     },
+     "json": {
+      "tp": 1,
+      "fp": 6,
+      "fn": 15,
+      "precision": 0.1429,
+      "recall": 0.0625,
+      "f1": 0.087,
+      "f2": 0.0704
+     },
+     "log": {
+      "tp": 1,
+      "fp": 10,
+      "fn": 23,
+      "precision": 0.0909,
+      "recall": 0.0417,
+      "f1": 0.0571,
+      "f2": 0.0467
+     },
+     "non_english": {
+      "tp": 28,
+      "fp": 52,
+      "fn": 73,
+      "precision": 0.35,
+      "recall": 0.2772,
+      "f1": 0.3094,
+      "f2": 0.2893
+     },
+     "obfuscated": {
+      "tp": 4,
+      "fp": 6,
+      "fn": 11,
+      "precision": 0.4,
+      "recall": 0.2667,
+      "f1": 0.32,
+      "f2": 0.2857
+     },
+     "ticket": {
+      "tp": 23,
+      "fp": 33,
+      "fn": 28,
+      "precision": 0.4107,
+      "recall": 0.451,
+      "f1": 0.4299,
+      "f2": 0.4423
+     },
+     "transcript": {
+      "tp": 2,
+      "fp": 6,
+      "fn": 8,
+      "precision": 0.25,
+      "recall": 0.2,
+      "f1": 0.2222,
+      "f2": 0.2083
+     },
+     "unexpected_field": {
+      "tp": 0,
+      "fp": 2,
+      "fn": 8,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     }
+    },
+    "caught_rate": 0.2552,
+    "leakage_rate": 1.0,
+    "leaking_records": 27,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 6,
+      "records": 6,
+      "rate": 1.0
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 21,
+      "records": 21,
+      "rate": 1.0
+     },
+     "json": {
+      "leaking": 4,
+      "records": 4,
+      "rate": 1.0
+     },
+     "log": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "non_english": {
+      "leaking": 20,
+      "records": 20,
+      "rate": 1.0
+     },
+     "obfuscated": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "ticket": {
+      "leaking": 10,
+      "records": 10,
+      "rate": 1.0
+     },
+     "transcript": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     },
+     "unexpected_field": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 8,
+     "API_KEY": 5,
+     "CREDIT_CARD": 6,
+     "DATE_OF_BIRTH": 6,
+     "EMAIL": 21,
+     "IBAN": 3,
+     "JWT": 1,
+     "NATIONAL_ID": 11,
+     "PASSWORD": 2,
+     "PERSON": 17,
+     "PHONE": 11
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 11,
+     "rate": 0.1803
+    },
+    "config": "spacy-only",
+    "components": [
+     "spacy"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 10.8,
+     "p95": 21.09,
+     "mean": 11.3
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 11.3,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 1.0,
+    "verbatim_leaking_records": 27,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 6,
+      "records": 6,
+      "rate": 1.0
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 21,
+      "records": 21,
+      "rate": 1.0
+     },
+     "json": {
+      "leaking": 4,
+      "records": 4,
+      "rate": 1.0
+     },
+     "log": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "non_english": {
+      "leaking": 20,
+      "records": 20,
+      "rate": 1.0
+     },
+     "obfuscated": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "ticket": {
+      "leaking": 10,
+      "records": 10,
+      "rate": 1.0
+     },
+     "transcript": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     },
+     "unexpected_field": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 74,
+     "fp": 43,
+     "fn": 71,
+     "precision": 0.6325,
+     "recall": 0.5103,
+     "f1": 0.5649,
+     "f2": 0.5308
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 21,
+      "fp": 4,
+      "fn": 27,
+      "precision": 0.84,
+      "recall": 0.4375,
+      "f1": 0.5753,
+      "f2": 0.4839
+     },
+     "EMAIL": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 18,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "f2": 0.2941
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.9167,
+      "recall": 1.0,
+      "f1": 0.9565,
+      "f2": 0.9821
+     },
+     "ADDRESS": {
+      "tp": 10,
+      "fp": 2,
+      "fn": 9,
+      "precision": 0.8333,
+      "recall": 0.5263,
+      "f1": 0.6452,
+      "f2": 0.5682
+     },
+     "NATIONAL_ID": {
+      "tp": 6,
+      "fp": 6,
+      "fn": 5,
+      "precision": 0.5,
+      "recall": 0.5455,
+      "f1": 0.5217,
+      "f2": 0.5357
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1": 0.9231,
+      "f2": 0.9677
+     },
+     "IBAN": {
+      "tp": 0,
+      "fp": 6,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "API_KEY": {
+      "tp": 4,
+      "fp": 6,
+      "fn": 2,
+      "precision": 0.4,
+      "recall": 0.6667,
+      "f1": 0.5,
+      "f2": 0.5882
+     },
+     "JWT": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 14,
+      "fn": 0,
+      "precision": 0.125,
+      "recall": 1.0,
+      "f1": 0.2222,
+      "f2": 0.4167
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 5,
+      "fp": 3,
+      "fn": 1,
+      "precision": 0.625,
+      "recall": 0.8333,
+      "f1": 0.7143,
+      "f2": 0.7812
+     },
+     "IP_ADDRESS": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 5,
+      "precision": 1.0,
+      "recall": 0.375,
+      "f1": 0.5455,
+      "f2": 0.4286
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 15,
+      "fp": 9,
+      "fn": 10,
+      "precision": 0.625,
+      "recall": 0.6,
+      "f1": 0.6122,
+      "f2": 0.6048
+     },
+     "csv": {
+      "tp": 7,
+      "fp": 4,
+      "fn": 19,
+      "precision": 0.6364,
+      "recall": 0.2692,
+      "f1": 0.3784,
+      "f2": 0.3043
+     },
+     "drift": {
+      "tp": 12,
+      "fp": 11,
+      "fn": 26,
+      "precision": 0.5217,
+      "recall": 0.3158,
+      "f1": 0.3934,
+      "f2": 0.3429
+     },
+     "filename": {
+      "tp": 0,
+      "fp": 3,
+      "fn": 18,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f2": 0.0
+     },
+     "hard_negative": {
+      "tp": 59,
+      "fp": 37,
+      "fn": 58,
+      "precision": 0.6146,
+      "recall": 0.5043,
+      "f1": 0.554,
+      "f2": 0.523
+     },
+     "json": {
+      "tp": 8,
+      "fp": 9,
+      "fn": 8,
+      "precision": 0.4706,
+      "recall": 0.5,
+      "f1": 0.4848,
+      "f2": 0.4938
+     },
+     "log": {
+      "tp": 14,
+      "fp": 3,
+      "fn": 10,
+      "precision": 0.8235,
+      "recall": 0.5833,
+      "f1": 0.6829,
+      "f2": 0.6195
+     },
+     "non_english": {
+      "tp": 58,
+      "fp": 34,
+      "fn": 43,
+      "precision": 0.6304,
+      "recall": 0.5743,
+      "f1": 0.601,
+      "f2": 0.5847
+     },
+     "obfuscated": {
+      "tp": 12,
+      "fp": 2,
+      "fn": 3,
+      "precision": 0.8571,
+      "recall": 0.8,
+      "f1": 0.8276,
+      "f2": 0.8108
+     },
+     "ticket": {
+      "tp": 37,
+      "fp": 23,
+      "fn": 14,
+      "precision": 0.6167,
+      "recall": 0.7255,
+      "f1": 0.6667,
+      "f2": 0.7008
+     },
+     "transcript": {
+      "tp": 8,
+      "fp": 1,
+      "fn": 2,
+      "precision": 0.8889,
+      "recall": 0.8,
+      "f1": 0.8421,
+      "f2": 0.8163
+     },
+     "unexpected_field": {
+      "tp": 2,
+      "fp": 5,
+      "fn": 6,
+      "precision": 0.2857,
+      "recall": 0.25,
+      "f1": 0.2667,
+      "f2": 0.2564
+     }
+    },
+    "caught_rate": 0.5448,
+    "leakage_rate": 0.8148,
+    "leaking_records": 22,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 4,
+      "records": 5,
+      "rate": 0.8
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 5,
+      "records": 6,
+      "rate": 0.8333
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 18,
+      "records": 21,
+      "rate": 0.8571
+     },
+     "json": {
+      "leaking": 3,
+      "records": 4,
+      "rate": 0.75
+     },
+     "log": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "non_english": {
+      "leaking": 15,
+      "records": 20,
+      "rate": 0.75
+     },
+     "obfuscated": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "ticket": {
+      "leaking": 6,
+      "records": 10,
+      "rate": 0.6
+     },
+     "transcript": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     },
+     "unexpected_field": {
+      "leaking": 1,
+      "records": 2,
+      "rate": 0.5
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 9,
+     "API_KEY": 2,
+     "DATE_OF_BIRTH": 1,
+     "EMAIL": 18,
+     "IBAN": 3,
+     "JWT": 1,
+     "NATIONAL_ID": 1,
+     "PERSON": 26
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 32,
+     "rate": 0.5246
+    },
+    "config": "gliner-only",
+    "components": [
+     "gliner"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 59.45,
+     "p95": 128.91,
+     "mean": 69.4
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 69.4,
+     "llm_usd": 0.0,
+     "llm_tokens_in": 0,
+     "llm_tokens_out": 0
+    },
+    "verbatim_leakage_rate": 0.8889,
+    "verbatim_leaking_records": 24,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "csv": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "drift": {
+      "leaking": 6,
+      "records": 6,
+      "rate": 1.0
+     },
+     "filename": {
+      "leaking": 5,
+      "records": 5,
+      "rate": 1.0
+     },
+     "hard_negative": {
+      "leaking": 19,
+      "records": 21,
+      "rate": 0.9048
+     },
+     "json": {
+      "leaking": 4,
+      "records": 4,
+      "rate": 1.0
+     },
+     "log": {
+      "leaking": 3,
+      "records": 3,
+      "rate": 1.0
+     },
+     "non_english": {
+      "leaking": 17,
+      "records": 20,
+      "rate": 0.85
+     },
+     "obfuscated": {
+      "leaking": 2,
+      "records": 3,
+      "rate": 0.6667
+     },
+     "ticket": {
+      "leaking": 8,
+      "records": 10,
+      "rate": 0.8
+     },
+     "transcript": {
+      "leaking": 1,
+      "records": 2,
+      "rate": 0.5
+     },
+     "unexpected_field": {
+      "leaking": 2,
+      "records": 2,
+      "rate": 1.0
+     }
+    }
+   },
+   {
+    "records": 27,
+    "gt_spans": 145,
+    "overall": {
+     "tp": 139,
+     "fp": 52,
+     "fn": 6,
+     "precision": 0.7277,
+     "recall": 0.9586,
+     "f1": 0.8274,
+     "f2": 0.9014
+    },
+    "per_type": {
+     "PERSON": {
+      "tp": 44,
+      "fp": 9,
+      "fn": 4,
+      "precision": 0.8302,
+      "recall": 0.9167,
+      "f1": 0.8713,
+      "f2": 0.898
+     },
+     "EMAIL": {
+      "tp": 24,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.8889,
+      "recall": 1.0,
+      "f1": 0.9412,
+      "f2": 0.9756
+     },
+     "PHONE": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "ADDRESS": {
+      "tp": 17,
+      "fp": 3,
+      "fn": 2,
+      "precision": 0.85,
+      "recall": 0.8947,
+      "f1": 0.8718,
+      "f2": 0.8854
+     },
+     "NATIONAL_ID": {
+      "tp": 11,
+      "fp": 8,
+      "fn": 0,
+      "precision": 0.5789,
+      "recall": 1.0,
+      "f1": 0.7333,
+      "f2": 0.873
+     },
+     "CREDIT_CARD": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "IBAN": {
+      "tp": 3,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.3333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "f2": 0.7143
+     },
+     "API_KEY": {
+      "tp": 6,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "JWT": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6667,
+      "f2": 0.8333
+     },
+     "PASSWORD": {
+      "tp": 2,
+      "fp": 13,
+      "fn": 0,
+      "precision": 0.1333,
+      "recall": 1.0,
+      "f1": 0.2353,
+      "f2": 0.4348
+     },
+     "DATE_OF_BIRTH": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     },
+     "IP_ADDRESS": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     }
+    },
+    "per_slice": {
+     "clean": {
+      "tp": 25,
+      "fp": 9,
+      "fn": 0,
+      "precision": 0.7353,
+      "recall": 1.0,
+      "f1": 0.8475,
+      "f2": 0.9328
+     },
+     "csv": {
+      "tp": 26,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.8667,
+      "recall": 1.0,
+      "f1": 0.9286,
+      "f2": 0.9701
+     },
+     "drift": {
+      "tp": 38,
+      "fp": 10,
+      "fn": 0,
+      "precision": 0.7917,
+      "recall": 1.0,
+      "f1": 0.8837,
+      "f2": 0.95
+     },
+     "filename": {
+      "tp": 14,
+      "fp": 8,
+      "fn": 4,
+      "precision": 0.6364,
+      "recall": 0.7778,
+      "f1": 0.7,
+      "f2": 0.7447
+     },
+     "hard_negative": {
+      "tp": 113,
+      "fp": 48,
+      "fn": 4,
+      "precision": 0.7019,
+      "recall": 0.9658,
+      "f1": 0.8129,
+      "f2": 0.8983
+     },
+     "json": {
+      "tp": 16,
+      "fp": 8,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     },
+     "log": {
+      "tp": 22,
+      "fp": 9,
+      "fn": 2,
+      "precision": 0.7097,
+      "recall": 0.9167,
+      "f1": 0.8,
+      "f2": 0.8661
+     },
+     "non_english": {
+      "tp": 99,
+      "fp": 35,
+      "fn": 2,
+      "precision": 0.7388,
+      "recall": 0.9802,
+      "f1": 0.8426,
+      "f2": 0.9201
+     },
+     "obfuscated": {
+      "tp": 15,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1": 0.9677,
+      "f2": 0.9868
+     },
+     "ticket": {
+      "tp": 51,
+      "fp": 23,
+      "fn": 0,
+      "precision": 0.6892,
+      "recall": 1.0,
+      "f1": 0.816,
+      "f2": 0.9173
+     },
+     "transcript": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "f2": 1.0
+     },
+     "unexpected_field": {
+      "tp": 8,
+      "fp": 4,
+      "fn": 0,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "f2": 0.9091
+     }
+    },
+    "caught_rate": 0.9862,
+    "leakage_rate": 0.037,
+    "leaking_records": 1,
+    "leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "hard_negative": {
+      "leaking": 1,
+      "records": 21,
+      "rate": 0.0476
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 1,
+      "records": 3,
+      "rate": 0.3333
+     },
+     "non_english": {
+      "leaking": 0,
+      "records": 20,
+      "rate": 0.0
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    },
+    "leaking_spans_by_type": {
+     "ADDRESS": 1
+    },
+    "hard_negatives": {
+     "total": 61,
+     "flagged": 35,
+     "rate": 0.5738
+    },
+    "config": "rules+stat+gliner+llm",
+    "components": [
+     "rules",
+     "stat",
+     "gliner",
+     "llm"
+    ],
+    "records_scored": 27,
+    "latency_ms": {
+     "p50": 681.4,
+     "p95": 873.44,
+     "mean": 674.12
+    },
+    "cost_per_1000_records": {
+     "compute_seconds_wall": 674.12,
+     "llm_usd": 0.0822,
+     "llm_tokens_in": 359407,
+     "llm_tokens_out": 47148
+    },
+    "verbatim_leakage_rate": 0.0,
+    "verbatim_leaking_records": 0,
+    "verbatim_leakage_by_slice": {
+     "clean": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "csv": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "drift": {
+      "leaking": 0,
+      "records": 6,
+      "rate": 0.0
+     },
+     "filename": {
+      "leaking": 0,
+      "records": 5,
+      "rate": 0.0
+     },
+     "hard_negative": {
+      "leaking": 0,
+      "records": 21,
+      "rate": 0.0
+     },
+     "json": {
+      "leaking": 0,
+      "records": 4,
+      "rate": 0.0
+     },
+     "log": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "non_english": {
+      "leaking": 0,
+      "records": 20,
+      "rate": 0.0
+     },
+     "obfuscated": {
+      "leaking": 0,
+      "records": 3,
+      "rate": 0.0
+     },
+     "ticket": {
+      "leaking": 0,
+      "records": 10,
+      "rate": 0.0
+     },
+     "transcript": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     },
+     "unexpected_field": {
+      "leaking": 0,
+      "records": 2,
+      "rate": 0.0
+     }
+    }
+   }
+  ]
  }
 }

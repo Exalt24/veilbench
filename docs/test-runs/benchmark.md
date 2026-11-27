@@ -4,11 +4,11 @@ Corpus: 800 generated records, 4512 labelled spans, 1849 hard negatives, seed 7,
 
 | configuration | precision | recall | F1 | F2 | span caught rate | records leaking (coverage) | records leaking (verbatim) | hard negatives flagged | p50 ms | p95 ms | compute s per 1,000 records | LLM USD per 1,000 records |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| rules | 0.989 | 0.825 | 0.900 | 0.853 | 0.820 | 0.621 | 0.590 | 0.000 | 0.29 | 0.73 | 0.35 | 0.0 |
+| rules | 0.989 | 0.825 | 0.900 | 0.853 | 0.820 | 0.621 | 0.590 | 0.000 | 0.29 | 0.74 | 0.35 | 0.0 |
 | rules+stat | 0.873 | 0.953 | 0.911 | 0.936 | 0.961 | 0.100 | 0.049 | 0.021 | 11.19 | 13.87 | 11.48 | 0.0 |
 | rules+stat+spacy | 0.731 | 0.954 | 0.828 | 0.899 | 0.964 | 0.092 | 0.045 | 0.127 | 22.83 | 37.2 | 24.33 | 0.0 |
 | rules+stat+gliner | 0.711 | 0.956 | 0.815 | 0.894 | 0.970 | 0.072 | 0.037 | 0.594 | 81.36 | 188.78 | 95.6 | 0.0 |
-| spacy-only | 0.295 | 0.218 | 0.251 | 0.230 | 0.287 | 0.981 | 0.978 | 0.097 | 11.66 | 23.56 | 12.84 | 0.0 |
+| spacy-only | 0.295 | 0.218 | 0.251 | 0.230 | 0.287 | 0.981 | 0.978 | 0.097 | 11.66 | 23.56 | 12.85 | 0.0 |
 | gliner-only | 0.641 | 0.591 | 0.615 | 0.600 | 0.612 | 0.784 | 0.774 | 0.584 | 70.02 | 175.36 | 84.11 | 0.0 |
 
 ## Recall by entity type
@@ -96,4 +96,16 @@ Corpus: 800 generated records, 4512 labelled spans, 1849 hard negatives, seed 7,
 | transcript | 59 | 0.017 | 0.000 | 0.000 | 0.000 | 1.000 | 0.576 |
 | unexpected_field | 181 | 0.674 | 0.000 | 0.000 | 0.000 | 0.972 | 0.834 |
 
-Skipped: llm (no GROQ_API_KEY and no cached responses)
+## The LLM second pass, on the first 27 records only
+
+The model is rate limited, so this table scores every configuration on the same subset. Latency for the LLM row is the measured API round trip.
+
+| configuration | precision | recall | F1 | F2 | span caught rate | records leaking (coverage) | records leaking (verbatim) | hard negatives flagged | p50 ms | p95 ms | compute s per 1,000 records | LLM USD per 1,000 records |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| rules | 1.000 | 0.828 | 0.906 | 0.857 | 0.828 | 0.556 | 0.556 | 0.000 | 0.24 | 0.58 | 0.3 | 0.0 |
+| rules+stat | 0.889 | 0.938 | 0.913 | 0.928 | 0.959 | 0.185 | 0.111 | 0.049 | 10.95 | 13.2 | 11.34 | 0.0 |
+| rules+stat+spacy | 0.747 | 0.938 | 0.832 | 0.892 | 0.959 | 0.185 | 0.111 | 0.246 | 21.75 | 33.9 | 22.63 | 0.0 |
+| rules+stat+gliner | 0.723 | 0.938 | 0.817 | 0.885 | 0.966 | 0.148 | 0.111 | 0.574 | 70.4 | 142.06 | 80.73 | 0.0 |
+| spacy-only | 0.333 | 0.228 | 0.271 | 0.243 | 0.255 | 1.000 | 1.000 | 0.180 | 10.8 | 21.09 | 11.3 | 0.0 |
+| gliner-only | 0.632 | 0.510 | 0.565 | 0.531 | 0.545 | 0.815 | 0.889 | 0.525 | 59.45 | 128.91 | 69.4 | 0.0 |
+| rules+stat+gliner+llm | 0.728 | 0.959 | 0.827 | 0.901 | 0.986 | 0.037 | 0.000 | 0.574 | 681.4 | 873.44 | 674.12 | 0.0822 |

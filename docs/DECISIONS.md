@@ -81,4 +81,6 @@ With the rules alone it cuts the records that still show an identifier from 137 
 
 ## 8. The LLM second pass
 
-See the section at the end of [`test-runs/benchmark.md`](test-runs/benchmark.md). It sees the text with everything already found replaced by `[X]`, so its tokens go on what is left. Its cost and latency are measured per call, and it only runs on a subset because the free key's daily and per minute token limits are shared with other work.
+It sees the text with everything already found replaced by `[X]`, so its tokens go on what is left (about 360,000 input and 47,000 output tokens per 1,000 records). On the 27 records it could be run on, rules plus the statistical model plus GLiNER left an identifier readable in 3 and the LLM pass left 0; recall rose from 0.938 to 0.959. It costs about $0.08 per 1,000 records at list price and a median 681 ms per record against 70 ms for the local models, so it belongs behind the cheap detectors as a leak hunter on records where the stakes justify it, and not in front of them. The numbers are in the last table of [`test-runs/benchmark.md`](test-runs/benchmark.md). It only ran on 27 records because the free key's daily and per minute token limits are shared with other work, which is also why 27 is evidence of what it does and not a rate.
+
+The first model tried, `gpt-oss-20b`, hit the organisation's daily token limit after 19 calls, so the run moved to `gpt-oss-120b`. The calls that were retried because of the per minute limit are not counted in the latency: only the successful request's round trip is.
