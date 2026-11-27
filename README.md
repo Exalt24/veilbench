@@ -6,7 +6,7 @@ Finds personal data and secrets in raw data, removes them five ways, and measure
 
 ![A generated support ticket through redact, mask, pseudonymize, anonymize and synthesize, with the identifiers still readable counted after each](docs/demo.gif)
 
-*A real run of `veilbench demo`: one generated ticket, the identifiers a rules and statistical detector found, and the same text after each technique. Look at what stays: the version string and the commit hash are not touched. Frame by frame it is the command's own output, replayed at its real pace by [`scripts/make_demo_gif.py`](scripts/make_demo_gif.py).*
+*A real run of `veilbench demo`: one generated ticket, what the detector found, and the text after each technique. The version string and the commit hash are left alone. The frames are the command's own output at its real pace ([`scripts/make_demo_gif.py`](scripts/make_demo_gif.py)).*
 
 **Proof:** on 800 generated records with 4,512 labelled identifiers, rules plus a statistical model leave an identifier readable in 5% of redacted records (39 of 800), against 59% for rules alone. On three layouts that model never trained on the same configuration leaves one in 37% of 300 records, and spaCy added to it brings that to 18%. 110 tests pass, and a mutation check that breaks the code one guard at a time is caught by a real test failure 44 times out of 44 ([`test-runs/mutation_check.txt`](docs/test-runs/mutation_check.txt)). CI: [green on `main`](https://github.com/Exalt24/veilbench/actions/workflows/ci.yml).
 
@@ -31,7 +31,7 @@ Command: `veilbench benchmark` (raw output, per type, per slice and the predicti
 
 Latency is wall time per record on one 16 core CPU, no GPU. The models are `en_core_web_sm` and `xx_ent_wiki_sm` (spaCy 3.8) and `knowledgator/gliner-pii-small-v1.0` (Apache 2.0).
 
-**The LLM second pass, on 27 records.** `openai/gpt-oss-120b` (Groq) is shown the text with everything the other detectors found replaced by `[X]`, and lists what is still there. The free key's token limits are shared with other work, so only the first 27 of the 800 records could be scored; every configuration is scored again on those same 27 in the last table of [`benchmark.md`](docs/test-runs/benchmark.md). On them, rules + statistical model + GLiNER leave an identifier readable in 3 of 27 records, and adding the LLM pass leaves 0 of 27. Recall goes from 0.938 to 0.959 and F2 from 0.885 to 0.901. The price is time and money: p50 681 ms against 70 ms, and about $0.08 per 1,000 records at the list price of $0.15 per million input tokens and $0.60 per million output tokens, read from the model's Groq page on 2026-11-28. Twenty seven records is too few to call a rate; it shows what the pass does, not how often. Its answers are kept as character offsets in [`llm_cache.jsonl`](docs/test-runs/llm_cache.jsonl), so the table can be rebuilt without a key.
+**The LLM second pass, on 27 records.** `openai/gpt-oss-120b` (Groq) is shown the text with everything the other detectors found replaced by `[X]`, and lists what is still there. The free key's token limits are shared with other work, so only the first 27 of the 800 records could be scored; every configuration is scored again on those same 27 in the last table of [`benchmark.md`](docs/test-runs/benchmark.md). On them, rules + statistical model + GLiNER leave an identifier readable in 3 of 27 records, and adding the LLM pass leaves 0 of 27. Recall goes from 0.938 to 0.959 and F2 from 0.885 to 0.901. The price is time and money: p50 681 ms against 70 ms, and about $0.08 per 1,000 records at the list price of $0.15 per million input tokens and $0.60 per million output tokens, read from the model's Groq page on 2026-11-28. Twenty seven records show what the pass does, not how often. Its answers are kept as character offsets in [`llm_cache.jsonl`](docs/test-runs/llm_cache.jsonl), so the table can be rebuilt without a key.
 
 **The statistical model was trained on this generator, so read the next table too.** It learned from 1,500 other generated records using four of the nine name cultures and some of the templates, but it shares the generator's way of writing, and its scores above are in that sense friendly. [`docs/test-runs/benchmark_ood.md`](docs/test-runs/benchmark_ood.md) scores the same configurations on 300 records in three layouts it never trained on (a quoted e-mail thread, meeting notes, a chat export; 2,350 spans, seed 17):
 
@@ -42,7 +42,7 @@ Latency is wall time per record on one 16 core CPU, no GPU. The models are `en_c
 | rules + statistical model + spaCy | 0.659 | 0.878 | 0.823 | 18% |
 | rules + statistical model + GLiNER PII | 0.712 | 0.893 | 0.850 | 31% |
 
-Where each detector wins and loses is in the per type and per slice tables of both reports. Rules are exact on validated identifiers (cards, IBANs, keys, e-mail, IP) and weak on names (recall 0.54) and addresses inside file paths. The statistical model fixes names but does not read a name written into a file name (the filename slice is where every configuration is weakest). GLiNER flags look-alikes freely: 59% of the hard negatives, so its precision on IBANs is 0.29.
+The per type and per slice tables of both reports show where each detector wins. Rules are exact on validated identifiers (cards, IBANs, keys, e-mail, IP) and weak on names (recall 0.54) and addresses inside file paths. The statistical model fixes names but does not read a name written into a file name (the filename slice is where every configuration is weakest). GLiNER flags look-alikes freely: 59% of the hard negatives, so its precision on IBANs is 0.29.
 
 ### Schema drift, hidden fields, odd formats
 
@@ -69,7 +69,6 @@ All on a generated population of 3,000 people with zip, birth year and gender, a
 
 - **Linkage attack.** On 1,513 released rows with exact values the attacker re-identifies 722 (47.7%); 61.3% of rows are unique and the measured k is 1. After Mondrian k-anonymity the measured k is 5 and no row is re-identified; the chance of guessing the right person falls from 66.4% to 8.8% for the average row, at 4.6% information loss. k of 25 costs 21.2%.
 - **Differential privacy.** A Laplace count at epsilon 1 is off by 1.00 on average (theory 1.00), at epsilon 0.1 by 9.9 (theory 10), measured over 20,000 draws each, with no measurable bias. The same noise defends against a membership attack: from a noisy table the attacker is right 100% of the time at no noise, 70% at epsilon 1 and 52% at epsilon 0.1 (chance is 50%).
-- **Synthetic rows** sampled from a histogram with epsilon 5 noise are off by 4% on the birth band shares and 12% on the zip shares.
 - **Format preserving masking.** Digit identifiers are encrypted with FF1 (NIST SP 800-38G), which reproduces the published sample vectors in [`tests/test_ids_and_fpe.py`](tests/test_ids_and_fpe.py); the output keeps its separators, a card stays Luhn valid and an IBAN still validates.
 - **Names across documents.** `Maria Santos`, `SANTOS, MARIA`, `María Santos`, `M. Santos` and `Maria S.` get one pseudonym, and `Mario Santos` does not. At the stated threshold of 0.96, 80.9% of 2,150 name variants land in their person's cluster and none of 30 near twin pairs merge. A threshold of 0.90 recovers 90.3% and merges 24 twins ([`cross_document_names.json`](docs/test-runs/cross_document_names.json)).
 
@@ -104,7 +103,7 @@ python -m spacy download en_core_web_sm && python -m spacy download xx_ent_wiki_
 veilbench demo                  # one record through all five techniques
 ```
 
-Other commands, each writing under `docs/test-runs/`:
+Each of these writes under `docs/test-runs/`:
 
 ```
 veilbench corpus                           # statistics and the sha256 of the generated corpus
@@ -124,7 +123,9 @@ python -m pytest                           # 110 tests, about 20 seconds
 python scripts/mutation_check.py           # breaks 44 guards one at a time, in a temporary copy
 ```
 
-The suite has unit tests and property tests (Hypothesis). The invariants are the ones the task asks of an anonymizer: with perfect detection no technique leaves an identifier of its own record readable, over thousands of random corpora; a pseudonym is the same every time under one key and almost never the same under another; masking keeps length and punctuation; every released k-anonymous group has at least k rows, whatever k and population; Laplace noise has no measurable bias and an error of 1/epsilon; FF1 matches the NIST vectors and decrypts back. [`scripts/mutation_check.py`](scripts/mutation_check.py) removes one guard at a time (the Luhn check, a check letter, the key in the pseudonym hash, the split that keeps k rows on each side, the noise scale, the clean-address pseudonym, and 38 more) and requires a failing test for each. Its first full run left six mutants alive and one pointing at code that had since changed. Two were guards made dead by another one and were deleted, four had no test that reached them and got one. Output: [`docs/test-runs/mutation_check.txt`](docs/test-runs/mutation_check.txt).
+The suite mixes unit tests with Hypothesis property tests. With perfect detection no technique leaves an identifier of its own record readable, over random corpora. A pseudonym is the same every time under one key and almost never under another. Masking keeps length and punctuation. Every k-anonymous group has at least k rows, for any k and population. Laplace noise has no measurable bias and an error of 1/epsilon. FF1 matches the NIST vectors and decrypts back.
+
+[`scripts/mutation_check.py`](scripts/mutation_check.py) removes one guard at a time (the Luhn check, a check letter, the key in the pseudonym hash, the split that keeps k rows, the noise scale, and 39 more) and requires a failing test for each. Its first full run left six mutants alive and one pointing at code that had changed. Two were guards made dead by another one and were deleted. Four had no test that reached them and got one. Output: [`docs/test-runs/mutation_check.txt`](docs/test-runs/mutation_check.txt).
 
 ## Limits
 
@@ -132,14 +133,14 @@ The suite has unit tests and property tests (Hypothesis). The invariants are the
 - **The rules have no name list.** A name is found only from a cue (a title, "my name is", a signature) or because its parts appear in an e-mail address elsewhere in the text. A lowercase token with no context is read as a hash, not a key. An address is found only in the layouts the patterns cover: US, Philippine and Spanish street forms, not an address written into a file path.
 - **Typed matching is strict on boundaries.** An address cut short or a name with a title counts as a miss in the typed table, even when it hides the value. The "readable after redaction" column is the fairer measure and is why it is reported.
 - **The LLM pass was measured on 27 records.** The free key allows a fixed number of tokens a day and a minute, shared with other work, so the claim for it is what it found in those records, not a rate.
-- **Names cannot always be told apart.** A bare `Ms. Santos` that fits two people is linked to neither, and a Spanish double surname cannot be split into given and family name by a rule, so recall for names across documents stops near 81% at the chosen threshold.
-- **k-anonymity protects three columns.** It says nothing about a sensitive column that is the same for a whole group, or about other columns an attacker might hold.
-- **Pseudonymized names need a stored map.** The stand-ins come from keyed hashing, not encryption, so reversing them takes a table; digit identifiers can be decrypted with the key.
-- **CPU only.** Latency is measured on one machine with 16 cores and no GPU, and the structure aware path calls the model once per value, which is why it is slow.
+- **Names cannot always be told apart.** A bare `Ms. Santos` that fits two people is linked to neither, and a rule cannot split a Spanish double surname, so cross document recall stops near 81%.
+- **k-anonymity covers three columns.** It says nothing about a sensitive column shared by a whole group, or other columns an attacker holds.
+- **Pseudonymized names need a stored map** to reverse, since they come from keyed hashing; digit identifiers decrypt with the key.
+- **CPU only.** Latency is from one machine with 16 cores and no GPU; the structure aware path calls the model once per value.
 
 ## Stack
 
-Python 3.13, NumPy, scikit-learn (the statistical detector and the utility classifier), `cryptography` (AES for FF1), spaCy, GLiNER, Hypothesis and pytest. The LLM pass uses `openai/gpt-oss-120b` through Groq's chat completions endpoint.
+Python 3.13, NumPy, scikit-learn (the statistical detector and the utility classifier), `cryptography` (AES for FF1), spaCy, GLiNER, Hypothesis and pytest, and `openai/gpt-oss-120b` on Groq for the LLM pass.
 
 ## License
 
