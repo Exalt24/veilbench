@@ -1,0 +1,1765 @@
+{
+ "corpus": {
+  "seed": 17,
+  "split": "ood",
+  "records": 300,
+  "spans": 2350,
+  "negatives": 585,
+  "spans_by_type": {
+   "ADDRESS": 339,
+   "API_KEY": 149,
+   "CREDIT_CARD": 150,
+   "DATE_OF_BIRTH": 80,
+   "EMAIL": 255,
+   "IP_ADDRESS": 65,
+   "NATIONAL_ID": 80,
+   "PASSWORD": 69,
+   "PERSON": 902,
+   "PHONE": 261
+  },
+  "records_by_slice": {
+   "chat_log": 69,
+   "email_thread": 121,
+   "hard_negative": 277,
+   "meeting_notes": 110,
+   "non_english": 210,
+   "obfuscated": 39,
+   "ood": 300
+  },
+  "sha256": "13598aea75424f3ed1ce2c034d58dcce70a426eb2b5815624d3151cec7ac48fe"
+ },
+ "environment": {
+  "python": "3.13.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cpu_count": 16,
+  "llm_model": null,
+  "llm_price_usd_per_million": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "model_load_seconds": {
+   "rules": 0.0,
+   "stat": 5.92,
+   "spacy": 0.92,
+   "gliner": 2.08
+  },
+  "stat_training": "1500 records, seed 1, split train"
+ },
+ "skipped": {
+  "llm": "no GROQ_API_KEY and no cached responses"
+ },
+ "configs": [
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 1582,
+    "fp": 111,
+    "fn": 768,
+    "precision": 0.9344,
+    "recall": 0.6732,
+    "f1": 0.7826,
+    "f2": 0.7131
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 204,
+     "fp": 0,
+     "fn": 698,
+     "precision": 1.0,
+     "recall": 0.2262,
+     "f1": 0.3689,
+     "f2": 0.2676
+    },
+    "EMAIL": {
+     "tp": 255,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    },
+    "PHONE": {
+     "tp": 261,
+     "fp": 110,
+     "fn": 0,
+     "precision": 0.7035,
+     "recall": 1.0,
+     "f1": 0.8259,
+     "f2": 0.9223
+    },
+    "ADDRESS": {
+     "tp": 339,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    },
+    "NATIONAL_ID": {
+     "tp": 79,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.9875,
+     "f1": 0.9937,
+     "f2": 0.99
+    },
+    "CREDIT_CARD": {
+     "tp": 150,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.9934,
+     "recall": 1.0,
+     "f1": 0.9967,
+     "f2": 0.9987
+    },
+    "API_KEY": {
+     "tp": 149,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    },
+    "PASSWORD": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 69,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 80,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    },
+    "IP_ADDRESS": {
+     "tp": 65,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 319,
+     "fp": 0,
+     "fn": 170,
+     "precision": 1.0,
+     "recall": 0.6524,
+     "f1": 0.7896,
+     "f2": 0.7011
+    },
+    "email_thread": {
+     "tp": 681,
+     "fp": 0,
+     "fn": 225,
+     "precision": 1.0,
+     "recall": 0.7517,
+     "f1": 0.8582,
+     "f2": 0.7909
+    },
+    "hard_negative": {
+     "tp": 1457,
+     "fp": 111,
+     "fn": 723,
+     "precision": 0.9292,
+     "recall": 0.6683,
+     "f1": 0.7775,
+     "f2": 0.7081
+    },
+    "meeting_notes": {
+     "tp": 582,
+     "fp": 111,
+     "fn": 373,
+     "precision": 0.8398,
+     "recall": 0.6094,
+     "f1": 0.7063,
+     "f2": 0.6448
+    },
+    "non_english": {
+     "tp": 1091,
+     "fp": 83,
+     "fn": 564,
+     "precision": 0.9293,
+     "recall": 0.6592,
+     "f1": 0.7713,
+     "f2": 0.6999
+    },
+    "obfuscated": {
+     "tp": 210,
+     "fp": 15,
+     "fn": 97,
+     "precision": 0.9333,
+     "recall": 0.684,
+     "f1": 0.7895,
+     "f2": 0.7226
+    },
+    "ood": {
+     "tp": 1582,
+     "fp": 111,
+     "fn": 768,
+     "precision": 0.9344,
+     "recall": 0.6732,
+     "f1": 0.7826,
+     "f2": 0.7131
+    }
+   },
+   "caught_rate": 0.6702,
+   "leakage_rate": 0.87,
+   "leaking_records": 261,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 53,
+     "records": 69,
+     "rate": 0.7681
+    },
+    "email_thread": {
+     "leaking": 98,
+     "records": 121,
+     "rate": 0.8099
+    },
+    "hard_negative": {
+     "leaking": 244,
+     "records": 277,
+     "rate": 0.8809
+    },
+    "meeting_notes": {
+     "leaking": 110,
+     "records": 110,
+     "rate": 1.0
+    },
+    "non_english": {
+     "leaking": 191,
+     "records": 210,
+     "rate": 0.9095
+    },
+    "obfuscated": {
+     "leaking": 32,
+     "records": 39,
+     "rate": 0.8205
+    },
+    "ood": {
+     "leaking": 261,
+     "records": 300,
+     "rate": 0.87
+    }
+   },
+   "leaking_spans_by_type": {
+    "PASSWORD": 69,
+    "PERSON": 698
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 110,
+    "rate": 0.188
+   },
+   "config": "rules",
+   "components": [
+    "rules"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 0.29,
+    "p95": 0.4,
+    "mean": 0.3
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 0.3,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.87,
+   "verbatim_leaking_records": 261,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 53,
+     "records": 69,
+     "rate": 0.7681
+    },
+    "email_thread": {
+     "leaking": 98,
+     "records": 121,
+     "rate": 0.8099
+    },
+    "hard_negative": {
+     "leaking": 244,
+     "records": 277,
+     "rate": 0.8809
+    },
+    "meeting_notes": {
+     "leaking": 110,
+     "records": 110,
+     "rate": 1.0
+    },
+    "non_english": {
+     "leaking": 191,
+     "records": 210,
+     "rate": 0.9095
+    },
+    "obfuscated": {
+     "leaking": 32,
+     "records": 39,
+     "rate": 0.8205
+    },
+    "ood": {
+     "leaking": 261,
+     "records": 300,
+     "rate": 0.87
+    }
+   }
+  },
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 1980,
+    "fp": 648,
+    "fn": 370,
+    "precision": 0.7534,
+    "recall": 0.8426,
+    "f1": 0.7955,
+    "f2": 0.8231
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 544,
+     "fp": 178,
+     "fn": 358,
+     "precision": 0.7535,
+     "recall": 0.6031,
+     "f1": 0.67,
+     "f2": 0.6282
+    },
+    "EMAIL": {
+     "tp": 255,
+     "fp": 57,
+     "fn": 0,
+     "precision": 0.8173,
+     "recall": 1.0,
+     "f1": 0.8995,
+     "f2": 0.9572
+    },
+    "PHONE": {
+     "tp": 261,
+     "fp": 110,
+     "fn": 0,
+     "precision": 0.7035,
+     "recall": 1.0,
+     "f1": 0.8259,
+     "f2": 0.9223
+    },
+    "ADDRESS": {
+     "tp": 339,
+     "fp": 20,
+     "fn": 0,
+     "precision": 0.9443,
+     "recall": 1.0,
+     "f1": 0.9713,
+     "f2": 0.9883
+    },
+    "NATIONAL_ID": {
+     "tp": 79,
+     "fp": 2,
+     "fn": 1,
+     "precision": 0.9753,
+     "recall": 0.9875,
+     "f1": 0.9814,
+     "f2": 0.985
+    },
+    "CREDIT_CARD": {
+     "tp": 150,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.9934,
+     "recall": 1.0,
+     "f1": 0.9967,
+     "f2": 0.9987
+    },
+    "API_KEY": {
+     "tp": 149,
+     "fp": 97,
+     "fn": 0,
+     "precision": 0.6057,
+     "recall": 1.0,
+     "f1": 0.7544,
+     "f2": 0.8848
+    },
+    "JWT": {
+     "tp": 0,
+     "fp": 19,
+     "fn": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "PASSWORD": {
+     "tp": 58,
+     "fp": 0,
+     "fn": 11,
+     "precision": 1.0,
+     "recall": 0.8406,
+     "f1": 0.9134,
+     "f2": 0.8683
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 80,
+     "fp": 164,
+     "fn": 0,
+     "precision": 0.3279,
+     "recall": 1.0,
+     "f1": 0.4938,
+     "f2": 0.7092
+    },
+    "IP_ADDRESS": {
+     "tp": 65,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 371,
+     "fp": 184,
+     "fn": 118,
+     "precision": 0.6685,
+     "recall": 0.7587,
+     "f1": 0.7107,
+     "f2": 0.7387
+    },
+    "email_thread": {
+     "tp": 820,
+     "fp": 211,
+     "fn": 86,
+     "precision": 0.7953,
+     "recall": 0.9051,
+     "f1": 0.8467,
+     "f2": 0.8808
+    },
+    "hard_negative": {
+     "tp": 1831,
+     "fp": 587,
+     "fn": 349,
+     "precision": 0.7572,
+     "recall": 0.8399,
+     "f1": 0.7964,
+     "f2": 0.822
+    },
+    "meeting_notes": {
+     "tp": 789,
+     "fp": 253,
+     "fn": 166,
+     "precision": 0.7572,
+     "recall": 0.8262,
+     "f1": 0.7902,
+     "f2": 0.8114
+    },
+    "non_english": {
+     "tp": 1385,
+     "fp": 455,
+     "fn": 270,
+     "precision": 0.7527,
+     "recall": 0.8369,
+     "f1": 0.7926,
+     "f2": 0.8186
+    },
+    "obfuscated": {
+     "tp": 262,
+     "fp": 75,
+     "fn": 45,
+     "precision": 0.7774,
+     "recall": 0.8534,
+     "f1": 0.8137,
+     "f2": 0.8371
+    },
+    "ood": {
+     "tp": 1980,
+     "fp": 648,
+     "fn": 370,
+     "precision": 0.7534,
+     "recall": 0.8426,
+     "f1": 0.7955,
+     "f2": 0.8231
+    }
+   },
+   "caught_rate": 0.897,
+   "leakage_rate": 0.47,
+   "leaking_records": 141,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 37,
+     "records": 69,
+     "rate": 0.5362
+    },
+    "email_thread": {
+     "leaking": 8,
+     "records": 121,
+     "rate": 0.0661
+    },
+    "hard_negative": {
+     "leaking": 140,
+     "records": 277,
+     "rate": 0.5054
+    },
+    "meeting_notes": {
+     "leaking": 96,
+     "records": 110,
+     "rate": 0.8727
+    },
+    "non_english": {
+     "leaking": 102,
+     "records": 210,
+     "rate": 0.4857
+    },
+    "obfuscated": {
+     "leaking": 16,
+     "records": 39,
+     "rate": 0.4103
+    },
+    "ood": {
+     "leaking": 141,
+     "records": 300,
+     "rate": 0.47
+    }
+   },
+   "leaking_spans_by_type": {
+    "PASSWORD": 44,
+    "PERSON": 190
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 166,
+    "rate": 0.2838
+   },
+   "config": "rules+stat",
+   "components": [
+    "rules",
+    "stat"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 11.23,
+    "p95": 14.46,
+    "mean": 11.64
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 11.64,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.3667,
+   "verbatim_leaking_records": 110,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 34,
+     "records": 69,
+     "rate": 0.4928
+    },
+    "email_thread": {
+     "leaking": 3,
+     "records": 121,
+     "rate": 0.0248
+    },
+    "hard_negative": {
+     "leaking": 110,
+     "records": 277,
+     "rate": 0.3971
+    },
+    "meeting_notes": {
+     "leaking": 73,
+     "records": 110,
+     "rate": 0.6636
+    },
+    "non_english": {
+     "leaking": 82,
+     "records": 210,
+     "rate": 0.3905
+    },
+    "obfuscated": {
+     "leaking": 14,
+     "records": 39,
+     "rate": 0.359
+    },
+    "ood": {
+     "leaking": 110,
+     "records": 300,
+     "rate": 0.3667
+    }
+   }
+  },
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 2063,
+    "fp": 1065,
+    "fn": 287,
+    "precision": 0.6595,
+    "recall": 0.8779,
+    "f1": 0.7532,
+    "f2": 0.8234
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 627,
+     "fp": 409,
+     "fn": 275,
+     "precision": 0.6052,
+     "recall": 0.6951,
+     "f1": 0.6471,
+     "f2": 0.6751
+    },
+    "EMAIL": {
+     "tp": 255,
+     "fp": 57,
+     "fn": 0,
+     "precision": 0.8173,
+     "recall": 1.0,
+     "f1": 0.8995,
+     "f2": 0.9572
+    },
+    "PHONE": {
+     "tp": 261,
+     "fp": 110,
+     "fn": 0,
+     "precision": 0.7035,
+     "recall": 1.0,
+     "f1": 0.8259,
+     "f2": 0.9223
+    },
+    "ADDRESS": {
+     "tp": 339,
+     "fp": 206,
+     "fn": 0,
+     "precision": 0.622,
+     "recall": 1.0,
+     "f1": 0.767,
+     "f2": 0.8916
+    },
+    "NATIONAL_ID": {
+     "tp": 79,
+     "fp": 2,
+     "fn": 1,
+     "precision": 0.9753,
+     "recall": 0.9875,
+     "f1": 0.9814,
+     "f2": 0.985
+    },
+    "CREDIT_CARD": {
+     "tp": 150,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.9934,
+     "recall": 1.0,
+     "f1": 0.9967,
+     "f2": 0.9987
+    },
+    "API_KEY": {
+     "tp": 149,
+     "fp": 97,
+     "fn": 0,
+     "precision": 0.6057,
+     "recall": 1.0,
+     "f1": 0.7544,
+     "f2": 0.8848
+    },
+    "JWT": {
+     "tp": 0,
+     "fp": 19,
+     "fn": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "PASSWORD": {
+     "tp": 58,
+     "fp": 0,
+     "fn": 11,
+     "precision": 1.0,
+     "recall": 0.8406,
+     "f1": 0.9134,
+     "f2": 0.8683
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 80,
+     "fp": 164,
+     "fn": 0,
+     "precision": 0.3279,
+     "recall": 1.0,
+     "f1": 0.4938,
+     "f2": 0.7092
+    },
+    "IP_ADDRESS": {
+     "tp": 65,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 376,
+     "fp": 211,
+     "fn": 113,
+     "precision": 0.6405,
+     "recall": 0.7689,
+     "f1": 0.6989,
+     "f2": 0.7393
+    },
+    "email_thread": {
+     "tp": 826,
+     "fp": 288,
+     "fn": 80,
+     "precision": 0.7415,
+     "recall": 0.9117,
+     "f1": 0.8178,
+     "f2": 0.8717
+    },
+    "hard_negative": {
+     "tp": 1914,
+     "fp": 1003,
+     "fn": 266,
+     "precision": 0.6562,
+     "recall": 0.878,
+     "f1": 0.751,
+     "f2": 0.8224
+    },
+    "meeting_notes": {
+     "tp": 861,
+     "fp": 566,
+     "fn": 94,
+     "precision": 0.6034,
+     "recall": 0.9016,
+     "f1": 0.7229,
+     "f2": 0.8205
+    },
+    "non_english": {
+     "tp": 1441,
+     "fp": 764,
+     "fn": 214,
+     "precision": 0.6535,
+     "recall": 0.8707,
+     "f1": 0.7466,
+     "f2": 0.8164
+    },
+    "obfuscated": {
+     "tp": 275,
+     "fp": 136,
+     "fn": 32,
+     "precision": 0.6691,
+     "recall": 0.8958,
+     "f1": 0.766,
+     "f2": 0.8389
+    },
+    "ood": {
+     "tp": 2063,
+     "fp": 1065,
+     "fn": 287,
+     "precision": 0.6595,
+     "recall": 0.8779,
+     "f1": 0.7532,
+     "f2": 0.8234
+    }
+   },
+   "caught_rate": 0.9532,
+   "leakage_rate": 0.2467,
+   "leaking_records": 74,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 36,
+     "records": 69,
+     "rate": 0.5217
+    },
+    "email_thread": {
+     "leaking": 2,
+     "records": 121,
+     "rate": 0.0165
+    },
+    "hard_negative": {
+     "leaking": 73,
+     "records": 277,
+     "rate": 0.2635
+    },
+    "meeting_notes": {
+     "leaking": 36,
+     "records": 110,
+     "rate": 0.3273
+    },
+    "non_english": {
+     "leaking": 55,
+     "records": 210,
+     "rate": 0.2619
+    },
+    "obfuscated": {
+     "leaking": 7,
+     "records": 39,
+     "rate": 0.1795
+    },
+    "ood": {
+     "leaking": 74,
+     "records": 300,
+     "rate": 0.2467
+    }
+   },
+   "leaking_spans_by_type": {
+    "PASSWORD": 12,
+    "PERSON": 95
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 246,
+    "rate": 0.4205
+   },
+   "config": "rules+stat+spacy",
+   "components": [
+    "rules",
+    "stat",
+    "spacy"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 23.02,
+    "p95": 26.68,
+    "mean": 23.12
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 23.12,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.1833,
+   "verbatim_leaking_records": 55,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 33,
+     "records": 69,
+     "rate": 0.4783
+    },
+    "email_thread": {
+     "leaking": 0,
+     "records": 121,
+     "rate": 0.0
+    },
+    "hard_negative": {
+     "leaking": 55,
+     "records": 277,
+     "rate": 0.1986
+    },
+    "meeting_notes": {
+     "leaking": 22,
+     "records": 110,
+     "rate": 0.2
+    },
+    "non_english": {
+     "leaking": 43,
+     "records": 210,
+     "rate": 0.2048
+    },
+    "obfuscated": {
+     "leaking": 6,
+     "records": 39,
+     "rate": 0.1538
+    },
+    "ood": {
+     "leaking": 55,
+     "records": 300,
+     "rate": 0.1833
+    }
+   }
+  },
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 2098,
+    "fp": 848,
+    "fn": 252,
+    "precision": 0.7122,
+    "recall": 0.8928,
+    "f1": 0.7923,
+    "f2": 0.8497
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 651,
+     "fp": 160,
+     "fn": 251,
+     "precision": 0.8027,
+     "recall": 0.7217,
+     "f1": 0.7601,
+     "f2": 0.7366
+    },
+    "EMAIL": {
+     "tp": 255,
+     "fp": 49,
+     "fn": 0,
+     "precision": 0.8388,
+     "recall": 1.0,
+     "f1": 0.9123,
+     "f2": 0.963
+    },
+    "PHONE": {
+     "tp": 261,
+     "fp": 123,
+     "fn": 0,
+     "precision": 0.6797,
+     "recall": 1.0,
+     "f1": 0.8093,
+     "f2": 0.9139
+    },
+    "ADDRESS": {
+     "tp": 339,
+     "fp": 11,
+     "fn": 0,
+     "precision": 0.9686,
+     "recall": 1.0,
+     "f1": 0.984,
+     "f2": 0.9936
+    },
+    "NATIONAL_ID": {
+     "tp": 79,
+     "fp": 45,
+     "fn": 1,
+     "precision": 0.6371,
+     "recall": 0.9875,
+     "f1": 0.7745,
+     "f2": 0.8896
+    },
+    "CREDIT_CARD": {
+     "tp": 150,
+     "fp": 4,
+     "fn": 0,
+     "precision": 0.974,
+     "recall": 1.0,
+     "f1": 0.9868,
+     "f2": 0.9947
+    },
+    "IBAN": {
+     "tp": 0,
+     "fp": 26,
+     "fn": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "API_KEY": {
+     "tp": 149,
+     "fp": 97,
+     "fn": 0,
+     "precision": 0.6057,
+     "recall": 1.0,
+     "f1": 0.7544,
+     "f2": 0.8848
+    },
+    "JWT": {
+     "tp": 0,
+     "fp": 19,
+     "fn": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "PASSWORD": {
+     "tp": 69,
+     "fp": 84,
+     "fn": 0,
+     "precision": 0.451,
+     "recall": 1.0,
+     "f1": 0.6216,
+     "f2": 0.8042
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 80,
+     "fp": 230,
+     "fn": 0,
+     "precision": 0.2581,
+     "recall": 1.0,
+     "f1": 0.4103,
+     "f2": 0.6349
+    },
+    "IP_ADDRESS": {
+     "tp": 65,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "f2": 1.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 414,
+     "fp": 294,
+     "fn": 75,
+     "precision": 0.5847,
+     "recall": 0.8466,
+     "f1": 0.6917,
+     "f2": 0.777
+    },
+    "email_thread": {
+     "tp": 842,
+     "fp": 311,
+     "fn": 64,
+     "precision": 0.7303,
+     "recall": 0.9294,
+     "f1": 0.8179,
+     "f2": 0.8813
+    },
+    "hard_negative": {
+     "tp": 1948,
+     "fp": 788,
+     "fn": 232,
+     "precision": 0.712,
+     "recall": 0.8936,
+     "f1": 0.7925,
+     "f2": 0.8502
+    },
+    "meeting_notes": {
+     "tp": 842,
+     "fp": 243,
+     "fn": 113,
+     "precision": 0.776,
+     "recall": 0.8817,
+     "f1": 0.8255,
+     "f2": 0.8583
+    },
+    "non_english": {
+     "tp": 1477,
+     "fp": 567,
+     "fn": 178,
+     "precision": 0.7226,
+     "recall": 0.8924,
+     "f1": 0.7986,
+     "f2": 0.8524
+    },
+    "obfuscated": {
+     "tp": 284,
+     "fp": 98,
+     "fn": 23,
+     "precision": 0.7435,
+     "recall": 0.9251,
+     "f1": 0.8244,
+     "f2": 0.882
+    },
+    "ood": {
+     "tp": 2098,
+     "fp": 848,
+     "fn": 252,
+     "precision": 0.7122,
+     "recall": 0.8928,
+     "f1": 0.7923,
+     "f2": 0.8497
+    }
+   },
+   "caught_rate": 0.9323,
+   "leakage_rate": 0.3667,
+   "leaking_records": 110,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 21,
+     "records": 69,
+     "rate": 0.3043
+    },
+    "email_thread": {
+     "leaking": 5,
+     "records": 121,
+     "rate": 0.0413
+    },
+    "hard_negative": {
+     "leaking": 110,
+     "records": 277,
+     "rate": 0.3971
+    },
+    "meeting_notes": {
+     "leaking": 84,
+     "records": 110,
+     "rate": 0.7636
+    },
+    "non_english": {
+     "leaking": 78,
+     "records": 210,
+     "rate": 0.3714
+    },
+    "obfuscated": {
+     "leaking": 13,
+     "records": 39,
+     "rate": 0.3333
+    },
+    "ood": {
+     "leaking": 110,
+     "records": 300,
+     "rate": 0.3667
+    }
+   },
+   "leaking_spans_by_type": {
+    "PASSWORD": 15,
+    "PERSON": 137
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 423,
+    "rate": 0.7231
+   },
+   "config": "rules+stat+gliner",
+   "components": [
+    "rules",
+    "stat",
+    "gliner"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 72.11,
+    "p95": 89.73,
+    "mean": 73.61
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 73.61,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.3067,
+   "verbatim_leaking_records": 92,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 18,
+     "records": 69,
+     "rate": 0.2609
+    },
+    "email_thread": {
+     "leaking": 3,
+     "records": 121,
+     "rate": 0.0248
+    },
+    "hard_negative": {
+     "leaking": 92,
+     "records": 277,
+     "rate": 0.3321
+    },
+    "meeting_notes": {
+     "leaking": 71,
+     "records": 110,
+     "rate": 0.6455
+    },
+    "non_english": {
+     "leaking": 69,
+     "records": 210,
+     "rate": 0.3286
+    },
+    "obfuscated": {
+     "leaking": 13,
+     "records": 39,
+     "rate": 0.3333
+    },
+    "ood": {
+     "leaking": 92,
+     "records": 300,
+     "rate": 0.3067
+    }
+   }
+  },
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 571,
+    "fp": 1599,
+    "fn": 1779,
+    "precision": 0.2631,
+    "recall": 0.243,
+    "f1": 0.2527,
+    "f2": 0.2468
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 544,
+     "fp": 546,
+     "fn": 358,
+     "precision": 0.4991,
+     "recall": 0.6031,
+     "f1": 0.5462,
+     "f2": 0.579
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 255,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "PHONE": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 261,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "ADDRESS": {
+     "tp": 27,
+     "fp": 1053,
+     "fn": 312,
+     "precision": 0.025,
+     "recall": 0.0796,
+     "f1": 0.0381,
+     "f2": 0.0554
+    },
+    "NATIONAL_ID": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 80,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "CREDIT_CARD": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 150,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "API_KEY": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 149,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "PASSWORD": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 69,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 80,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "IP_ADDRESS": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 65,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 73,
+     "fp": 260,
+     "fn": 416,
+     "precision": 0.2192,
+     "recall": 0.1493,
+     "f1": 0.1776,
+     "f2": 0.1595
+    },
+    "email_thread": {
+     "tp": 218,
+     "fp": 757,
+     "fn": 688,
+     "precision": 0.2236,
+     "recall": 0.2406,
+     "f1": 0.2318,
+     "f2": 0.237
+    },
+    "hard_negative": {
+     "tp": 548,
+     "fp": 1513,
+     "fn": 1632,
+     "precision": 0.2659,
+     "recall": 0.2514,
+     "f1": 0.2584,
+     "f2": 0.2542
+    },
+    "meeting_notes": {
+     "tp": 280,
+     "fp": 582,
+     "fn": 675,
+     "precision": 0.3248,
+     "recall": 0.2932,
+     "f1": 0.3082,
+     "f2": 0.299
+    },
+    "non_english": {
+     "tp": 407,
+     "fp": 1128,
+     "fn": 1248,
+     "precision": 0.2651,
+     "recall": 0.2459,
+     "f1": 0.2552,
+     "f2": 0.2495
+    },
+    "obfuscated": {
+     "tp": 78,
+     "fp": 197,
+     "fn": 229,
+     "precision": 0.2836,
+     "recall": 0.2541,
+     "f1": 0.268,
+     "f2": 0.2595
+    },
+    "ood": {
+     "tp": 571,
+     "fp": 1599,
+     "fn": 1779,
+     "precision": 0.2631,
+     "recall": 0.243,
+     "f1": 0.2527,
+     "f2": 0.2468
+    }
+   },
+   "caught_rate": 0.414,
+   "leakage_rate": 0.9967,
+   "leaking_records": 299,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 68,
+     "records": 69,
+     "rate": 0.9855
+    },
+    "email_thread": {
+     "leaking": 121,
+     "records": 121,
+     "rate": 1.0
+    },
+    "hard_negative": {
+     "leaking": 277,
+     "records": 277,
+     "rate": 1.0
+    },
+    "meeting_notes": {
+     "leaking": 110,
+     "records": 110,
+     "rate": 1.0
+    },
+    "non_english": {
+     "leaking": 209,
+     "records": 210,
+     "rate": 0.9952
+    },
+    "obfuscated": {
+     "leaking": 39,
+     "records": 39,
+     "rate": 1.0
+    },
+    "ood": {
+     "leaking": 299,
+     "records": 300,
+     "rate": 0.9967
+    }
+   },
+   "leaking_spans_by_type": {
+    "ADDRESS": 30,
+    "API_KEY": 133,
+    "CREDIT_CARD": 150,
+    "DATE_OF_BIRTH": 76,
+    "EMAIL": 223,
+    "NATIONAL_ID": 27,
+    "PASSWORD": 20,
+    "PERSON": 222,
+    "PHONE": 246
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 83,
+    "rate": 0.1419
+   },
+   "config": "spacy-only",
+   "components": [
+    "spacy"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 11.54,
+    "p95": 13.72,
+    "mean": 11.48
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 11.48,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.9967,
+   "verbatim_leaking_records": 299,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 68,
+     "records": 69,
+     "rate": 0.9855
+    },
+    "email_thread": {
+     "leaking": 121,
+     "records": 121,
+     "rate": 1.0
+    },
+    "hard_negative": {
+     "leaking": 277,
+     "records": 277,
+     "rate": 1.0
+    },
+    "meeting_notes": {
+     "leaking": 110,
+     "records": 110,
+     "rate": 1.0
+    },
+    "non_english": {
+     "leaking": 209,
+     "records": 210,
+     "rate": 0.9952
+    },
+    "obfuscated": {
+     "leaking": 39,
+     "records": 39,
+     "rate": 1.0
+    },
+    "ood": {
+     "leaking": 299,
+     "records": 300,
+     "rate": 0.9967
+    }
+   }
+  },
+  {
+   "records": 300,
+   "gt_spans": 2350,
+   "overall": {
+    "tp": 1212,
+    "fp": 440,
+    "fn": 1138,
+    "precision": 0.7337,
+    "recall": 0.5157,
+    "f1": 0.6057,
+    "f2": 0.5483
+   },
+   "per_type": {
+    "PERSON": {
+     "tp": 313,
+     "fp": 21,
+     "fn": 589,
+     "precision": 0.9371,
+     "recall": 0.347,
+     "f1": 0.5065,
+     "f2": 0.397
+    },
+    "EMAIL": {
+     "tp": 47,
+     "fp": 0,
+     "fn": 208,
+     "precision": 1.0,
+     "recall": 0.1843,
+     "f1": 0.3113,
+     "f2": 0.2202
+    },
+    "PHONE": {
+     "tp": 221,
+     "fp": 16,
+     "fn": 40,
+     "precision": 0.9325,
+     "recall": 0.8467,
+     "f1": 0.8876,
+     "f2": 0.8626
+    },
+    "ADDRESS": {
+     "tp": 282,
+     "fp": 58,
+     "fn": 57,
+     "precision": 0.8294,
+     "recall": 0.8319,
+     "f1": 0.8306,
+     "f2": 0.8314
+    },
+    "NATIONAL_ID": {
+     "tp": 60,
+     "fp": 43,
+     "fn": 20,
+     "precision": 0.5825,
+     "recall": 0.75,
+     "f1": 0.6557,
+     "f2": 0.7092
+    },
+    "CREDIT_CARD": {
+     "tp": 122,
+     "fp": 11,
+     "fn": 28,
+     "precision": 0.9173,
+     "recall": 0.8133,
+     "f1": 0.8622,
+     "f2": 0.8322
+    },
+    "IBAN": {
+     "tp": 0,
+     "fp": 26,
+     "fn": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    },
+    "API_KEY": {
+     "tp": 74,
+     "fp": 16,
+     "fn": 75,
+     "precision": 0.8222,
+     "recall": 0.4966,
+     "f1": 0.6192,
+     "f2": 0.5394
+    },
+    "PASSWORD": {
+     "tp": 49,
+     "fp": 154,
+     "fn": 20,
+     "precision": 0.2414,
+     "recall": 0.7101,
+     "f1": 0.3603,
+     "f2": 0.5115
+    },
+    "DATE_OF_BIRTH": {
+     "tp": 44,
+     "fp": 95,
+     "fn": 36,
+     "precision": 0.3165,
+     "recall": 0.55,
+     "f1": 0.4018,
+     "f2": 0.4793
+    },
+    "IP_ADDRESS": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 65,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "f2": 0.0
+    }
+   },
+   "per_slice": {
+    "chat_log": {
+     "tp": 202,
+     "fp": 194,
+     "fn": 287,
+     "precision": 0.5101,
+     "recall": 0.4131,
+     "f1": 0.4565,
+     "f2": 0.4294
+    },
+    "email_thread": {
+     "tp": 487,
+     "fp": 163,
+     "fn": 419,
+     "precision": 0.7492,
+     "recall": 0.5375,
+     "f1": 0.626,
+     "f2": 0.5697
+    },
+    "hard_negative": {
+     "tp": 1153,
+     "fp": 408,
+     "fn": 1027,
+     "precision": 0.7386,
+     "recall": 0.5289,
+     "f1": 0.6164,
+     "f2": 0.5607
+    },
+    "meeting_notes": {
+     "tp": 523,
+     "fp": 83,
+     "fn": 432,
+     "precision": 0.863,
+     "recall": 0.5476,
+     "f1": 0.6701,
+     "f2": 0.5908
+    },
+    "non_english": {
+     "tp": 860,
+     "fp": 293,
+     "fn": 795,
+     "precision": 0.7459,
+     "recall": 0.5196,
+     "f1": 0.6125,
+     "f2": 0.5532
+    },
+    "obfuscated": {
+     "tp": 117,
+     "fp": 57,
+     "fn": 190,
+     "precision": 0.6724,
+     "recall": 0.3811,
+     "f1": 0.4865,
+     "f2": 0.4173
+    },
+    "ood": {
+     "tp": 1212,
+     "fp": 440,
+     "fn": 1138,
+     "precision": 0.7337,
+     "recall": 0.5157,
+     "f1": 0.6057,
+     "f2": 0.5483
+    }
+   },
+   "caught_rate": 0.5323,
+   "leakage_rate": 0.9733,
+   "leaking_records": 292,
+   "leakage_by_slice": {
+    "chat_log": {
+     "leaking": 66,
+     "records": 69,
+     "rate": 0.9565
+    },
+    "email_thread": {
+     "leaking": 120,
+     "records": 121,
+     "rate": 0.9917
+    },
+    "hard_negative": {
+     "leaking": 269,
+     "records": 277,
+     "rate": 0.9711
+    },
+    "meeting_notes": {
+     "leaking": 106,
+     "records": 110,
+     "rate": 0.9636
+    },
+    "non_english": {
+     "leaking": 203,
+     "records": 210,
+     "rate": 0.9667
+    },
+    "obfuscated": {
+     "leaking": 39,
+     "records": 39,
+     "rate": 1.0
+    },
+    "ood": {
+     "leaking": 292,
+     "records": 300,
+     "rate": 0.9733
+    }
+   },
+   "leaking_spans_by_type": {
+    "ADDRESS": 41,
+    "API_KEY": 15,
+    "CREDIT_CARD": 26,
+    "DATE_OF_BIRTH": 36,
+    "EMAIL": 208,
+    "NATIONAL_ID": 10,
+    "PASSWORD": 22,
+    "PERSON": 591,
+    "PHONE": 23
+   },
+   "hard_negatives": {
+    "total": 585,
+    "flagged": 280,
+    "rate": 0.4786
+   },
+   "config": "gliner-only",
+   "components": [
+    "gliner"
+   ],
+   "records_scored": 300,
+   "latency_ms": {
+    "p50": 60.52,
+    "p95": 77.83,
+    "mean": 61.97
+   },
+   "cost_per_1000_records": {
+    "compute_seconds_wall": 61.97,
+    "llm_usd": 0.0,
+    "llm_tokens_in": 0,
+    "llm_tokens_out": 0
+   },
+   "verbatim_leakage_rate": 0.9667,
+   "verbatim_leaking_records": 290,
+   "verbatim_leakage_by_slice": {
+    "chat_log": {
+     "leaking": 65,
+     "records": 69,
+     "rate": 0.942
+    },
+    "email_thread": {
+     "leaking": 120,
+     "records": 121,
+     "rate": 0.9917
+    },
+    "hard_negative": {
+     "leaking": 267,
+     "records": 277,
+     "rate": 0.9639
+    },
+    "meeting_notes": {
+     "leaking": 105,
+     "records": 110,
+     "rate": 0.9545
+    },
+    "non_english": {
+     "leaking": 201,
+     "records": 210,
+     "rate": 0.9571
+    },
+    "obfuscated": {
+     "leaking": 39,
+     "records": 39,
+     "rate": 1.0
+    },
+    "ood": {
+     "leaking": 290,
+     "records": 300,
+     "rate": 0.9667
+    }
+   }
+  }
+ ],
+ "llm_subset": {
+  "records": 0,
+  "configs": []
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "tickets": 1200,
+ "customers": 250,
+ "train": 840,
+ "test": 360,
+ "true_distinct_customers": 246,
+ "true_repeat_customers": 225,
+ "rows": [
+  {
+   "name": "raw text (no anonymization)",
+   "classifier_accuracy": 0.775,
+   "distinct_customers": 246,
+   "distinct_customers_error": 0.0,
+   "repeat_customers": 225,
+   "repeat_customers_error": 0.0
+  },
+  {
+   "name": "redact (ground truth spans)",
+   "classifier_accuracy": 0.8167,
+   "distinct_customers": 1,
+   "distinct_customers_error": 0.9959,
+   "repeat_customers": 1,
+   "repeat_customers_error": 0.9956
+  },
+  {
+   "name": "mask (ground truth spans)",
+   "classifier_accuracy": 0.8083,
+   "distinct_customers": 241,
+   "distinct_customers_error": 0.0203,
+   "repeat_customers": 221,
+   "repeat_customers_error": 0.0178
+  },
+  {
+   "name": "pseudonymize (ground truth spans)",
+   "classifier_accuracy": 0.7861,
+   "distinct_customers": 246,
+   "distinct_customers_error": 0.0,
+   "repeat_customers": 225,
+   "repeat_customers_error": 0.0
+  },
+  {
+   "name": "anonymize (ground truth spans)",
+   "classifier_accuracy": 0.8139,
+   "distinct_customers": 6,
+   "distinct_customers_error": 0.9756,
+   "repeat_customers": 6,
+   "repeat_customers_error": 0.9733
+  },
+  {
+   "name": "synthesize (ground truth spans)",
+   "classifier_accuracy": 0.7917,
+   "distinct_customers": 1197,
+   "distinct_customers_error": 3.8659,
+   "repeat_customers": 3,
+   "repeat_customers_error": 0.9867
+  },
+  {
+   "name": "pseudonymize (rules+stat)",
+   "classifier_accuracy": 0.7833,
+   "distinct_customers": 246,
+   "distinct_customers_error": 0.0,
+   "repeat_customers": 225,
+   "repeat_customers_error": 0.0,
+   "verbatim_leaking_tickets": 1
+  }
+ ]
+}

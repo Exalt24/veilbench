@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veilbench"
+version = "0.1.0"
+description = "A PII detection and anonymization lab: detectors benchmarked against each other, five transformations, k-anonymity, differential privacy and a linkage attack."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.26", "scikit-learn>=1.4", "cryptography>=42"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "hypothesis>=6.100"]
+models = ["spacy>=3.7", "gliner>=0.2.20"]
+
+[project.scripts]
+veilbench = "veilbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["veilbench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

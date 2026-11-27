@@ -1,0 +1,212 @@
+{
+ "population": 3000,
+ "released_rows": 1513,
+ "attacker_named_list": 3000,
+ "before": {
+  "measured_k": 1,
+  "unique_row_share": 0.6134,
+  "rows": 1513,
+  "reidentified": 722,
+  "reid_rate": 0.4772,
+  "mean_guess_probability": 0.6638
+ },
+ "k_anonymity": [
+  {
+   "k_requested": 2,
+   "measured_k": 2,
+   "unique_row_share": 0.0,
+   "information_loss": 0.0144,
+   "rows": 1513,
+   "reidentified": 0,
+   "reid_rate": 0.0,
+   "mean_guess_probability": 0.2896
+  },
+  {
+   "k_requested": 5,
+   "measured_k": 5,
+   "unique_row_share": 0.0,
+   "information_loss": 0.0458,
+   "rows": 1513,
+   "reidentified": 0,
+   "reid_rate": 0.0,
+   "mean_guess_probability": 0.088
+  },
+  {
+   "k_requested": 10,
+   "measured_k": 10,
+   "unique_row_share": 0.0,
+   "information_loss": 0.0768,
+   "rows": 1513,
+   "reidentified": 0,
+   "reid_rate": 0.0,
+   "mean_guess_probability": 0.041
+  },
+  {
+   "k_requested": 25,
+   "measured_k": 25,
+   "unique_row_share": 0.0,
+   "information_loss": 0.2115,
+   "rows": 1513,
+   "reidentified": 0,
+   "reid_rate": 0.0,
+   "mean_guess_probability": 0.0147
+  }
+ ],
+ "dp_count_error_curve": [
+  {
+   "epsilon": 0.01,
+   "trials": 20000,
+   "mae_measured": 101.08,
+   "mae_theory": 100.0,
+   "rmse_measured": 143.097,
+   "rmse_theory": 141.421,
+   "bias_measured": -0.222
+  },
+  {
+   "epsilon": 0.05,
+   "trials": 20000,
+   "mae_measured": 20.077,
+   "mae_theory": 20.0,
+   "rmse_measured": 28.545,
+   "rmse_theory": 28.284,
+   "bias_measured": -0.482
+  },
+  {
+   "epsilon": 0.1,
+   "trials": 20000,
+   "mae_measured": 9.912,
+   "mae_theory": 10.0,
+   "rmse_measured": 14.004,
+   "rmse_theory": 14.142,
+   "bias_measured": 0.121
+  },
+  {
+   "epsilon": 0.5,
+   "trials": 20000,
+   "mae_measured": 2.013,
+   "mae_theory": 2.0,
+   "rmse_measured": 2.843,
+   "rmse_theory": 2.828,
+   "bias_measured": 0.031
+  },
+  {
+   "epsilon": 1.0,
+   "trials": 20000,
+   "mae_measured": 0.997,
+   "mae_theory": 1.0,
+   "rmse_measured": 1.409,
+   "rmse_theory": 1.414,
+   "bias_measured": 0.016
+  },
+  {
+   "epsilon": 2.0,
+   "trials": 20000,
+   "mae_measured": 0.497,
+   "mae_theory": 0.5,
+   "rmse_measured": 0.703,
+   "rmse_theory": 0.707,
+   "bias_measured": -0.005
+  },
+  {
+   "epsilon": 5.0,
+   "trials": 20000,
+   "mae_measured": 0.201,
+   "mae_theory": 0.2,
+   "rmse_measured": 0.287,
+   "rmse_theory": 0.283,
+   "bias_measured": 0.002
+  },
+  {
+   "epsilon": 10.0,
+   "trials": 20000,
+   "mae_measured": 0.1,
+   "mae_theory": 0.1,
+   "rmse_measured": 0.141,
+   "rmse_theory": 0.141,
+   "bias_measured": 0.0
+  }
+ ],
+ "membership_attack": [
+  {
+   "epsilon": null,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 1.0,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 0.01,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.5025,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 0.05,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.5116,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 0.1,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.5234,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 0.5,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.6087,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 1.0,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.6975,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 2.0,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.8182,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 5.0,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.9605,
+   "base_rate": 0.5
+  },
+  {
+   "epsilon": 10.0,
+   "targets": 1423,
+   "trials": 20,
+   "accuracy": 0.9968,
+   "base_rate": 0.5
+  }
+ ],
+ "synthetic": [
+  {
+   "epsilon": 1.0,
+   "synthetic_rows": 3000,
+   "match_exactly_one_real_person": 779,
+   "rate": 0.2597,
+   "zip_share_relative_error": 0.1702,
+   "birth_band_share_relative_error": 0.0669
+  },
+  {
+   "epsilon": 5.0,
+   "synthetic_rows": 3000,
+   "match_exactly_one_real_person": 794,
+   "rate": 0.2647,
+   "zip_share_relative_error": 0.1181,
+   "birth_band_share_relative_error": 0.0386
+  }
+ ]
+}

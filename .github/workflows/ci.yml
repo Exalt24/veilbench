@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install the package, the test tools and the two small spaCy models
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]" spacy
+          python -m spacy download en_core_web_sm
+          python -m spacy download xx_ent_wiki_sm
+      - name: Tests (unit, property and the benchmark smoke run; the GLiNER test skips without its weights)
+        run: python -m pytest -q -W ignore
+      - name: A small seeded benchmark of the rules configuration
+        run: |
+          python -m veilbench.cli corpus --n 800 --seed 7 > corpus.json
+          python -m veilbench.cli benchmark --n 200 --seed 7 --configs rules --no-llm --out ci-run --work ci-work
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ci-benchmark
+          path: ci-run/
+          retention-days: 7

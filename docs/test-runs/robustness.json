@@ -1,0 +1,118 @@
+{
+ "rules only": {
+  "structure aware": {
+   "csv": {
+    "leaking": 61,
+    "records": 80,
+    "rate": 0.7625
+   },
+   "drift": {
+    "leaking": 135,
+    "records": 217,
+    "rate": 0.6221
+   },
+   "json": {
+    "leaking": 107,
+    "records": 192,
+    "rate": 0.5573
+   },
+   "obfuscated": {
+    "leaking": 15,
+    "records": 21,
+    "rate": 0.7143
+   },
+   "unexpected_field": {
+    "leaking": 104,
+    "records": 181,
+    "rate": 0.5746
+   },
+   "seconds": 0.21
+  },
+  "flat text pass": {
+   "csv": {
+    "leaking": 69,
+    "records": 80,
+    "rate": 0.8625
+   },
+   "drift": {
+    "leaking": 163,
+    "records": 217,
+    "rate": 0.7512
+   },
+   "json": {
+    "leaking": 137,
+    "records": 192,
+    "rate": 0.7135
+   },
+   "obfuscated": {
+    "leaking": 17,
+    "records": 21,
+    "rate": 0.8095
+   },
+   "unexpected_field": {
+    "leaking": 122,
+    "records": 181,
+    "rate": 0.674
+   },
+   "seconds": 0.18
+  }
+ },
+ "rules + statistical model": {
+  "structure aware": {
+   "csv": {
+    "leaking": 0,
+    "records": 80,
+    "rate": 0.0
+   },
+   "drift": {
+    "leaking": 0,
+    "records": 217,
+    "rate": 0.0
+   },
+   "json": {
+    "leaking": 0,
+    "records": 192,
+    "rate": 0.0
+   },
+   "obfuscated": {
+    "leaking": 0,
+    "records": 21,
+    "rate": 0.0
+   },
+   "unexpected_field": {
+    "leaking": 0,
+    "records": 181,
+    "rate": 0.0
+   },
+   "seconds": 60.06
+  },
+  "flat text pass": {
+   "csv": {
+    "leaking": 0,
+    "records": 80,
+    "rate": 0.0
+   },
+   "drift": {
+    "leaking": 0,
+    "records": 217,
+    "rate": 0.0
+   },
+   "json": {
+    "leaking": 0,
+    "records": 192,
+    "rate": 0.0
+   },
+   "obfuscated": {
+    "leaking": 0,
+    "records": 21,
+    "rate": 0.0
+   },
+   "unexpected_field": {
+    "leaking": 0,
+    "records": 181,
+    "rate": 0.0
+   },
+   "seconds": 3.41
+  }
+ }
+}

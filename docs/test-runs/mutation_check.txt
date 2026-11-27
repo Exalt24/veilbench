@@ -1,0 +1,61 @@
+working in a copy: C:\Users\Dax\AppData\Local\Temp\veilbench-mutation-rsauv7ms\copy
+
+baseline (unmutated tests must pass):
+  pass  tests/test_rules_and_merge.py
+  pass  tests/test_ids_and_fpe.py tests/test_rules_and_merge.py
+  pass  tests/test_ids_and_fpe.py
+  pass  tests/test_ids_and_fpe.py tests/test_transforms.py
+  pass  tests/test_transforms.py
+  pass  tests/test_xdoc_and_structured.py
+  pass  tests/test_privacy.py
+  pass  tests/test_metrics_and_benchmark.py
+  pass  tests/test_corpus.py
+
+mutations:
+  caught    [detect] a card number no longer needs a valid Luhn digit  (1s)  <- test_a_luhn_valid_card_is_found_and_a_same_length_order_number_is_not
+  caught    [detect] an IBAN no longer needs valid check digits  (1s)  <- test_iban_needs_a_valid_check_digit
+  caught    [detect] a Spanish DNI no longer needs its check letter  (1s)  <- test_national_ids_by_checksum_and_by_shape
+  caught    [detect] a version string is read as an IP address  (1s)  <- test_things_that_look_like_identifiers_are_left_alone[build
+  SURVIVED  [detect] a lower case commit hash is read as a secret  (1s)
+  caught    [detect] any date is a birth date  (1s)  <- test_a_date_is_a_birth_date_only_with_a_birth_cue
+  caught    [detect] a bare digit run (an epoch timestamp) is a phone number  (1s)  <- test_things_that_look_like_identifiers_are_left_alone[1725643433]
+  caught    [detect] the e-mail words form stops at the first reserved top level name  (1s)  <- test_the_words_form_prefers_the_longest_real_address
+  SURVIVED  [detect] a stop word after a cue is taken as a name  (1s)
+  caught    [detect] the merge keeps a sloppy copy of a finding  (1s)  <- test_merge_keeps_the_better_detector_boundaries_and_drops_a_sloppy_copy
+  caught    [detect] the merge lets a heuristic outrank a validated rule  (1s)  <- test_merge_keeps_the_better_detector_boundaries_and_drops_a_sloppy_copy
+  caught    [ids] the Luhn check doubles the wrong digits  (2s)  <- test_masked_card_is_still_luhn_valid_and_changes_the_number
+  caught    [ids] an IBAN passes on a wrong remainder  (2s)  <- test_validators_accept_known_good_and_reject_one_digit_changes
+  caught    [fpe] FF1 runs 8 rounds instead of 10  (1s)  <- test_ff1_matches_the_nist_sample_vectors
+  caught    [fpe] a masked card is no longer Luhn valid  (2s)  <- test_masked_card_is_still_luhn_valid_and_changes_the_number
+  caught    [fpe] masked separators move  (2s)  <- test_digit_masking_keeps_every_separator_in_place
+  caught    [transform] masking keeps every digit instead of the last four  (2s)  <- test_no_ground_truth_identifier_survives_any_technique[mask]
+  caught    [transform] masking keeps the first four digits of a secret too  (3s)  <- test_masking_keeps_only_the_last_four_digits_of_a_number
+  caught    [transform] the pseudonym key is ignored  (3s)  <- test_no_identifier_survives_over_random_worlds
+  caught    [transform] the e-mail pseudonym is built from the surface form, not the clean address  (2s)  <- test_no_identifier_survives_over_random_worlds
+  caught    [transform] a label with no pseudonym rule (a secret) passes through unchanged  (2s)  <- test_no_ground_truth_identifier_survives_any_technique[pseudonymize]
+  caught    [transform] a pseudonym name can be a real name from the pools  (2s)  <- test_no_identifier_survives_over_random_worlds
+  caught    [transform] synthetic values are linkable across documents  (3s)  <- test_no_identifier_survives_over_random_worlds
+  caught    [transform] a synthetic stand-in may contain a real name from the document  (3s)  <- test_no_ground_truth_identifier_survives_any_technique[synthesize]
+  caught    [transform] anonymize keeps the full birth date  (2s)  <- test_no_ground_truth_identifier_survives_any_technique[anonymize]
+  caught    [xdoc] every similarity clears the threshold  (2s)  <- test_close_but_different_people_stay_apart_at_the_chosen_threshold
+  caught    [xdoc] an ambiguous mention is linked to the first candidate  (2s)  <- test_a_bare_surname_that_fits_two_people_is_linked_to_neither
+  caught    [xdoc] a stand-alone cluster can be joined by later mentions  (3s)  <- test_a_stand_alone_cluster_made_for_an_ambiguous_mention_never_absorbs_a_new_per
+  caught    [privacy] the k-anonymity split no longer keeps k rows on each side  (16s)  <- test_k_anonymity_every_released_group_has_at_least_k_rows
+  caught    [privacy] measured k reports the largest group  (2s)  <- test_measured_k_is_the_smallest_group_before_and_after
+  caught    [privacy] Laplace noise is biased  (3s)  <- test_laplace_noise_is_unbiased_with_the_theoretical_spread
+  caught    [privacy] the noise scale ignores epsilon  (2s)  <- test_membership_attack_is_certain_on_exact_counts_and_near_chance_at_tiny_epsilo
+  caught    [privacy] a non-positive epsilon is accepted  (2s)  <- test_histogram_noise_is_independent_per_bin_and_clamping_only_when_asked
+  caught    [privacy] the attack counts a row as re-identified when several names fit  (2s)  <- test_linkage_attack_succeeds_on_raw_rows_and_fails_after_generalization
+  caught    [metrics] F2 weights precision and recall equally  (2s)  <- test_f2_weights_recall_more_than_f1
+  caught    [metrics] a surviving surname is not a leak  (2s)  <- test_leak_rules_per_type
+  caught    [metrics] the verbatim check matches inside longer words  (2s)  <- test_verbatim_leak_is_a_whole_word_match_and_reads_the_clean_form
+  caught    [metrics] a hard negative inside a real identifier counts as a false alarm  (2s)  <- test_a_hard_negative_inside_a_real_identifier_is_not_a_false_alarm
+  caught    [structured] keys are never cleaned  (4s)  <- test_json_value_and_key_are_cleaned_and_the_output_is_still_json
+  caught    [structured] a string that is itself JSON is not opened  (3s)  <- test_a_json_string_inside_json_is_opened_so_its_field_names_count
+  caught    [structured] field names are no longer a hint  (3s)  <- test_renamed_keys_are_cleaned_by_value_and_by_name_hint
+  caught    [structured] a failing structured path is not caught  (3s)  <- test_a_failing_structured_path_still_ends_in_a_cleaned_output
+  caught    [corpus] the escaped JSON string shifts its spans by the wrong amount  (2s)  <- test_secret_spans_are_exactly_the_secret_even_inside_an_escaped_json_string
+  caught    [corpus] the train split can use the held out cultures  (2s)  <- test_train_split_never_uses_the_cultures_held_out_for_evaluation
+
+42 of 44 caught, 2 survived or invalid; the copy is back to green: True
+PROBLEMS: a lower case commit hash is read as a secret; a stop word after a cue is taken as a name

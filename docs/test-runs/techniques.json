@@ -1,0 +1,44 @@
+{
+ "rows": [
+  {
+   "technique": "redact",
+   "records": 800,
+   "verbatim_leaking_records": 0,
+   "reversible": false,
+   "keeps_join": false,
+   "keeps_format": false
+  },
+  {
+   "technique": "mask",
+   "records": 800,
+   "verbatim_leaking_records": 0,
+   "reversible": false,
+   "keeps_join": false,
+   "keeps_format": true
+  },
+  {
+   "technique": "pseudonymize",
+   "records": 800,
+   "verbatim_leaking_records": 0,
+   "reversible": true,
+   "keeps_join": true,
+   "keeps_format": true
+  },
+  {
+   "technique": "anonymize",
+   "records": 800,
+   "verbatim_leaking_records": 0,
+   "reversible": false,
+   "keeps_join": false,
+   "keeps_format": false
+  },
+  {
+   "technique": "synthesize",
+   "records": 800,
+   "verbatim_leaking_records": 0,
+   "reversible": false,
+   "keeps_join": false,
+   "keeps_format": true
+  }
+ ]
+}

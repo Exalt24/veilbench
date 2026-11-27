@@ -1,0 +1,85 @@
+{
+ "people": 300,
+ "near_twin_people": 30,
+ "rows": [
+  {
+   "threshold": 0.8,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.8888,
+   "people_split_over_clusters": 147,
+   "clusters_merging_different_people": 51,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 28,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 54,
+   "title_last_linked_to_a_person_cluster_wrongly": 11
+  },
+  {
+   "threshold": 0.85,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.8986,
+   "people_split_over_clusters": 131,
+   "clusters_merging_different_people": 48,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 28,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 74,
+   "title_last_linked_to_a_person_cluster_wrongly": 11
+  },
+  {
+   "threshold": 0.9,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.9033,
+   "people_split_over_clusters": 122,
+   "clusters_merging_different_people": 45,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 24,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 82,
+   "title_last_linked_to_a_person_cluster_wrongly": 12
+  },
+  {
+   "threshold": 0.93,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.8953,
+   "people_split_over_clusters": 133,
+   "clusters_merging_different_people": 32,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 11,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 83,
+   "title_last_linked_to_a_person_cluster_wrongly": 14
+  },
+  {
+   "threshold": 0.96,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.8088,
+   "people_split_over_clusters": 197,
+   "clusters_merging_different_people": 18,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 0,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 77,
+   "title_last_linked_to_a_person_cluster_wrongly": 18
+  },
+  {
+   "threshold": 0.98,
+   "people": 330,
+   "resolvable_mentions": 2150,
+   "mentions_in_their_person_main_cluster": 0.7167,
+   "people_split_over_clusters": 265,
+   "clusters_merging_different_people": 18,
+   "near_twin_pairs": 30,
+   "near_twin_pairs_merged": 0,
+   "title_last_mentions": 300,
+   "title_last_linked_to_right_person": 79,
+   "title_last_linked_to_a_person_cluster_wrongly": 18
+  }
+ ],
+ "chosen_threshold": 0.96
+}
