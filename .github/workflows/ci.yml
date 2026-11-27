@@ -34,7 +34,7 @@ jobs:
         run: |
           python -m veilbench.cli corpus --n 800 --seed 7 > corpus.json
           python -m veilbench.cli benchmark --n 200 --seed 7 --configs rules --no-llm --out ci-run --work ci-work
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ci-benchmark
           path: ci-run/
