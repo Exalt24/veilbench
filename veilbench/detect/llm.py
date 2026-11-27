@@ -113,7 +113,8 @@ class LLMReviewer:
         row = self.cache.get(key)
         if row is None:
             if self.offline or not self.api_key:
-                return [], {"ms": 0.0, "in": 0, "out": 0, "cached": False, "missing": True}
+                # a missing answer must never be scored as "the model found nothing"
+                raise RuntimeError("no cached LLM response for this record and no GROQ_API_KEY: score a smaller subset or provide a key")
             items, usage = self._call(masked)
             self.calls += 1
             spans = self._locate(text, known, items)
