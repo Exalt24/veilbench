@@ -28,7 +28,7 @@ The first merge stretched every span to the union of what the detectors found. I
 
 The score that decides is F2, which weights recall four times as much as precision, together with the share of records where an identifier can still be read after redaction. A false alarm costs a masked word. A miss costs a leak. Both are in [`test-runs/benchmark.md`](test-runs/benchmark.md).
 
-A detector pays for what it adds, in latency and in false alarms on look-alikes. Per 1,000 records on one 16 core CPU: rules 0.4 s, rules plus the statistical model 11 s, plus spaCy 24 s, plus GLiNER 87 s. GLiNER also flags many of the hard negatives (order numbers, commit hashes), so it is a recall tool and not a precision tool here.
+A detector pays for what it adds, in latency and in false alarms on look-alikes. Per 1,000 records on one 16 core CPU: rules 0.35 s, rules plus the statistical model 11.5 s, plus spaCy 24.3 s, plus GLiNER 95.6 s. GLiNER also flags many of the hard negatives (order numbers, commit hashes), so it is a recall tool and not a precision tool here.
 
 ## 3. The statistical model is trained on the generator, and the numbers say so
 
