@@ -1,3 +1,4 @@
+import hashlib
 import random
 import re
 
@@ -172,7 +173,7 @@ def test_a_pseudonym_is_redrawn_when_it_would_be_a_real_name(monkeypatch):
     t = Transformer("pseudonymize")
     redrawn = 0
     for i in range(400):
-        word = t._pseudo_token(f"digest-{i:04d}".encode(), "first")
+        word = t._pseudo_token(hashlib.sha256(str(i).encode()).digest()[:6], "first")
         assert fold(word) not in real, word
-        redrawn += fold(t._pseudo_token(f"digest-{i:04d}".encode(), "first")) == fold(word)
+        redrawn += fold(t._pseudo_token(hashlib.sha256(str(i).encode()).digest()[:6], "first")) == fold(word)
     assert redrawn == 400  # and the redraw is deterministic: the same digest gives the same word

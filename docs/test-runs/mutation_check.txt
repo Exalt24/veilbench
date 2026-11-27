@@ -53,3 +53,9 @@ mutations:
   caught    [structured] keys are never cleaned  (3s)  <- test_json_value_and_key_are_cleaned_and_the_output_is_still_json
   caught    [structured] a string that is itself JSON is not opened  (3s)  <- test_a_json_string_inside_json_is_opened_so_its_field_names_count
   caught    [structured] field names are no longer a hint  (3s)  <- test_renamed_keys_are_cleaned_by_value_and_by_name_hint
+  caught    [structured] a failing structured path is not caught  (3s)  <- test_a_failing_structured_path_still_ends_in_a_cleaned_output
+  caught    [corpus] the escaped JSON string shifts its spans by the wrong amount  (2s)  <- test_secret_spans_are_exactly_the_secret_even_inside_an_escaped_json_string
+  caught    [corpus] the train split can use the held out cultures  (2s)  <- test_train_split_never_uses_the_cultures_held_out_for_evaluation
+
+43 of 44 caught, 1 survived or invalid; the copy is back to green: True
+PROBLEMS: a pseudonym name can be a real name from the pools

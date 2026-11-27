@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Exalt24/veilbench/actions/workflows/ci.yml/badge.svg)](https://github.com/Exalt24/veilbench/actions/workflows/ci.yml)
 
-A lab that finds personal data and secrets in raw text and records, removes them five different ways, and measures what each choice costs and what it still leaks.
+Finds personal data and secrets in raw data, removes them five ways, and measures what each way costs and leaks.
 
 ![A generated support ticket through redact, mask, pseudonymize, anonymize and synthesize, with the identifiers still readable counted after each](docs/demo.gif)
 
